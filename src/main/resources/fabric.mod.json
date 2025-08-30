@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "evening-star-lib",
+	"version": "${version}",
+	"name": "Evening Star Lib",
+	"description": "",
+	"authors": [
+		"VesMaybeVesper"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/project/evening-star-lib",
+		"sources": "https://github.com/vesmaybevesper/Evening-Star-Lib"
+	},
+	"license": "MIT",
+	"icon": "assets/evening-star-lib/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"vesper.esl.EveningStarLib"
+		]
+	},
+	"mixins": [
+		"evening-star-lib.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.6",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
