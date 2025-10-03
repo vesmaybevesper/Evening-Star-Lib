@@ -1,8 +1,5 @@
-# Mod Template
+Modding library made up of code I got tired of writing over and over.
 
-This is a multi-loader mod template for Fabric and Neoforge utilizing stonecutter. This is the Java-only version 
-of mod-template-kotlin.
-It's largely been adapted from KikuGie's Elytra Trims rewrite following major feature updates to Stonecutter. 
-Feel free to use, although be aware that no support is officially offered or guaranteed.
+Evening Star Lib contains tools to speed up the development of Minecraft mods, with utilities for mod compatibility, rendering, and positional information.
 
-### Run scaffold.py to automate string replacements and file renames!
+Evening Star Lib is actively being updated with new features!
