@@ -25,6 +25,7 @@
     "eveningstarlib.mixins.json"
   ],
   "depends": {
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "minecraft": ">= 1.21.6"
   }
 }
