@@ -1,5 +1,5 @@
-package dev.vesper.eveningstarlib.common;
-
+package dev.vesper.eveningstarlib.fabric;
+//? fabric {
 import net.fabricmc.loader.api.FabricLoader;
 import net.irisshaders.iris.api.v0.IrisApi;
 
@@ -21,3 +21,4 @@ public class ESLModChecks {
         return FabricLoader.getInstance().isModLoaded("sodium");
     }
 }
+//?}
