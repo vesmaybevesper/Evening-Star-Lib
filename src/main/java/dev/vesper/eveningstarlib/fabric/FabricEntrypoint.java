@@ -1,8 +1,8 @@
-package dev.vesper.modtemplate.fabric;
+package dev.vesper.eveningstarlib.fabric;
 
 //? fabric {
-import dev.vesper.modtemplate.ExampleEventHandler; // sample_content
-import dev.vesper.modtemplate.ModTemplate;
+import dev.vesper.eveningstarlib.ExampleEventHandler; // sample_content
+import dev.vesper.eveningstarlib.ModTemplate;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents; // sample_content
 import net.minecraft.server.level.ServerPlayer; // sample_content

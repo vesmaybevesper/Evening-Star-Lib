@@ -1,3 +1,5 @@
+import java.net.URI
+
 plugins {
     id("net.neoforged.moddev")
     id ("dev.kikugie.postprocess.jsonlang")
@@ -26,11 +28,11 @@ jsonlang {
 }
 
 repositories{
-
+    maven { url = URI("https://api.modrinth.com/maven") }
 }
 
 dependencies{
-
+    compileOnly("maven.modrinth:iris:${property("deps.iris")}")
 }
 
 neoForge {

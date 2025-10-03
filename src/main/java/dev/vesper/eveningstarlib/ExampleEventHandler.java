@@ -1,4 +1,4 @@
-package dev.vesper.modtemplate;
+package dev.vesper.eveningstarlib;
 
 import net.minecraft.server.level.ServerPlayer;
 

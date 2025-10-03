@@ -1,4 +1,4 @@
-package dev.vesper.modtemplate;
+package dev.vesper.eveningstarlib;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

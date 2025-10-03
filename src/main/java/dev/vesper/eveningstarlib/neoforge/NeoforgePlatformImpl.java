@@ -1,7 +1,7 @@
-package dev.vesper.modtemplate.neoforge;
+package dev.vesper.eveningstarlib.neoforge;
 
 //? neoforge {
-/*import dev.spagurder.modtemplate.Platform;
+/*import dev.vesper.eveningstarlib.Platform;
 import net.neoforged.fml.ModList;
 
 public class NeoforgePlatformImpl implements Platform {

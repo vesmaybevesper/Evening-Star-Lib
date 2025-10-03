@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+import java.net.URI
+
+
 plugins {
     id("fabric-loom")
     id("dev.kikugie.postprocess.jsonlang")
@@ -23,7 +26,7 @@ version = "${property("mod.version")}+${property("deps.minecraft")}-fabric"
 base.archivesName = property("mod.id") as String
 
 loom {
-    accessWidenerPath = rootProject.file("src/main/resources/${property("mod.id")}.accesswidener")
+    accessWidenerPath = rootProject.file("src/main/resources/eveningstarlib.accesswidener")
 }
 
 jsonlang {
@@ -33,6 +36,7 @@ jsonlang {
 
 repositories {
     mavenLocal()
+    maven { url = URI("https://api.modrinth.com/maven") }
 }
 
 dependencies {
@@ -44,6 +48,7 @@ dependencies {
     })
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
     modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
+    compileOnly("maven.modrinth:iris:${property("deps.iris")}")
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) modImplementation(fabricApi.module("fabric-$it", property("deps.fabric-api") as String))

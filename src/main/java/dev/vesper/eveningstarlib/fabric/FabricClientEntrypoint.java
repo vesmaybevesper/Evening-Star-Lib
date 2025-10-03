@@ -1,7 +1,7 @@
-package dev.vesper.modtemplate.fabric;
+package dev.vesper.eveningstarlib.fabric;
 
 //? fabric {
-import dev.vesper.modtemplate.ModTemplate;
+import dev.vesper.eveningstarlib.ModTemplate;
 import net.fabricmc.api.ClientModInitializer;
 
 public class FabricClientEntrypoint implements ClientModInitializer {

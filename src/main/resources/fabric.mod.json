@@ -1,31 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "modtemplate",
-  "name": "Mod Template",
+  "id": "eveningstarlib",
+  "name": "Evening Star Lib",
   "version": "${version}",
   "authors": ["VesMaybeVesper"],
   "contact": {
     "sources": "",
     "issues": ""
   },
-  "description": "A Mod Description",
+  "description": "",
   "icon": "assets/icon.png",
   "license": "MIT",
   "environment": "*",
-  "accessWidener": "modtemplate.accesswidener",
+  "accessWidener": "eveningstarlib.accesswidener",
   "entrypoints": {
     "main": [
-      "dev.vesper.modtemplate.fabric.FabricEntrypoint"
+      "dev.vesper.eveningstarlib.fabric.FabricEntrypoint"
     ],
     "client": [
-      "dev.vesper.modtemplate.fabric.FabricClientEntrypoint"
-    ],
-    "fabric-datagen": [
-      "dev.vesper.modtemplate.fabric.datagen.FabricDataGeneratorEntrypoint"
+      "dev.vesper.eveningstarlib.fabric.FabricClientEntrypoint"
     ]
   },
   "mixins": [
-    "modtemplate.mixins.json"
+    "eveningstarlib.mixins.json"
   ],
   "depends": {
     "fabric-api": "*"

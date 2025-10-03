@@ -1,5 +1,5 @@
 {
-  "package": "dev.vesper.modtemplate.mixin",
+  "package": "dev.vesper.eveningstarlib.mixin",
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_21",
@@ -7,7 +7,7 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "ExampleMixin"
+    "ClientPacketListener"
   ],
   "client": []
 }

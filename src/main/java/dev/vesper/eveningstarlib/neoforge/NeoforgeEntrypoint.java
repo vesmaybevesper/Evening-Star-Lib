@@ -1,8 +1,8 @@
-package dev.vesper.modtemplate.neoforge;
+package dev.vesper.eveningstarlib.neoforge;
 
 //? neoforge {
-/*import dev.spagurder.modtemplate.ExampleEventHandler; // sample_content
-import dev.spagurder.modtemplate.ModTemplate;
+/*import dev.vesper.eveningstarlib.ExampleEventHandler; // sample_content
+import dev.vesper.eveningstarlib.ModTemplate;
 import net.minecraft.server.level.ServerPlayer; // sample_content
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;

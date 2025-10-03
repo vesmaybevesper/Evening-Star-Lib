@@ -3,24 +3,24 @@ loaderVersion = "[2,)"
 license = "MIT"
 
 [[mods]]
-modId = "modtemplate"
-displayName = "Mod Template"
+modId = "eveningstarlib"
+displayName = "Evening Star Lib"
 version = "${version}"
 displayURL = ""
 logoFile = "assets/icon.png"
 authors = "VesMaybeVesper"
-description = '''A Mod Description'''
+description = ''''''
 
 [[mixins]]
-config = "modtemplate.mixins.json"
+config = "eveningstarlib.mixins.json"
 
-[[dependencies.modtemplate]]
+[[dependencies.eveningstarlib]]
 modId = "neoforge"
 type = "required"
 versionRange = "[1,)"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"
 
-[[dependencies.modtemplate]]
+[[dependencies.eveningstarlib]]
 modId = "minecraft"
 type = "required"

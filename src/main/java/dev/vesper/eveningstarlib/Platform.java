@@ -1,10 +1,10 @@
-package dev.vesper.modtemplate;
+package dev.vesper.eveningstarlib;
 
 //? fabric {
-import dev.vesper.modtemplate.fabric.FabricPlatformImpl;
+import dev.vesper.eveningstarlib.fabric.FabricPlatformImpl;
 //?}
 //? neoforge {
-/*import dev.spagurder.modtemplate.neoforge.NeoforgePlatformImpl;
+/*import dev.vesper.eveningstarlib.neoforge.NeoforgePlatformImpl;
 *///?}
 
 public interface Platform {
