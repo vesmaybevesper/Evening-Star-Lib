@@ -1,34 +1,33 @@
 {
-	"schemaVersion": 1,
-	"id": "evening-star-lib",
-	"version": "${version}",
-	"name": "Evening Star Lib",
-	"description": "",
-	"authors": [
-		"VesMaybeVesper"
-	],
-	"contact": {
-		"homepage": "https://modrinth.com/project/evening-star-lib",
-		"sources": "https://github.com/vesmaybevesper/Evening-Star-Lib"
-	},
-	"license": "MIT",
-	"icon": "assets/evening-star-lib/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"vesper.esl.EveningStarLib"
-		]
-	},
-	"mixins": [
-		"evening-star-lib.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21.6",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "modtemplate",
+  "name": "Mod Template",
+  "version": "${version}",
+  "authors": ["VesMaybeVesper"],
+  "contact": {
+    "sources": "",
+    "issues": ""
+  },
+  "description": "A Mod Description",
+  "icon": "assets/icon.png",
+  "license": "MIT",
+  "environment": "*",
+  "accessWidener": "modtemplate.accesswidener",
+  "entrypoints": {
+    "main": [
+      "dev.vesper.modtemplate.fabric.FabricEntrypoint"
+    ],
+    "client": [
+      "dev.vesper.modtemplate.fabric.FabricClientEntrypoint"
+    ],
+    "fabric-datagen": [
+      "dev.vesper.modtemplate.fabric.datagen.FabricDataGeneratorEntrypoint"
+    ]
+  },
+  "mixins": [
+    "modtemplate.mixins.json"
+  ],
+  "depends": {
+    "fabric-api": "*"
+  }
 }
