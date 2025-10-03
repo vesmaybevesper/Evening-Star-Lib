@@ -1,5 +1,5 @@
 package dev.vesper.eveningstarlib.fabric.events;
-
+//? fabric {
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
@@ -14,3 +14,4 @@ public interface ClientRespawnEventCallback {
 
     void onRespawn(MultiPlayerGameMode gameMode, LocalPlayer oldPlayer, LocalPlayer newPlayer, Connection clientConnection);
 }
+//?}
