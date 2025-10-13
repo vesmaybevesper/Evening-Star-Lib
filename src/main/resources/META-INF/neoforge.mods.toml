@@ -24,4 +24,4 @@ side = "CLIENT"
 [[dependencies.eveningstarlib]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.6,)"
+versionRange = "[1.21.1,)"
