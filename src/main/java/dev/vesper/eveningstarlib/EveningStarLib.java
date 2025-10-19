@@ -3,9 +3,9 @@ package dev.vesper.eveningstarlib;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ModTemplate {
+public class EveningStarLib {
 
-    public static final String MOD_ID = "modtemplate";
+    public static final String MOD_ID = "eveningstarlib";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_ID);
 
     public static void init() {
