@@ -4,6 +4,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec2;
 
+import java.util.Random;
+
 public class ESLPosUtils {
     public static Vec2 posAtRanScreenEdge(){
         // random switch between render along top/bottom and side
@@ -37,5 +39,10 @@ public class ESLPosUtils {
             return new Vec2(randomWidth, randomHeight);
 
         }
+    }
+
+    public static double offsetWithNegative(double range){
+        Random random = new Random();
+        return random.nextDouble(range + 1) - range;
     }
 }
