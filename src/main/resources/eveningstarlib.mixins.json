@@ -7,8 +7,11 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "ClientPacketListener"
+    "ClientPacketListener",
+    "MinecraftServerMixin"
   ],
   "client": [
+    "ClientLevelMixin",
+    "MinecraftMixin"
   ]
 }
