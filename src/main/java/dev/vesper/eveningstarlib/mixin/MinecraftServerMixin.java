@@ -4,7 +4,6 @@ import com.llamalad7.mixinextras.sugar.Local;
 import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.progress.ChunkProgressListener;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,7 +23,7 @@ public class MinecraftServerMixin {
     private Map<ResourceKey<Level>, ServerLevel> levels;
 
     @Inject(method = "createLevels", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/storage/ServerLevelData;isInitialized()Z"))
-    private void onLoadOverworld(ChunkProgressListener chunkProgressListener, CallbackInfo ci){
+    private void onLoadOverworld(CallbackInfo ci){
         new LevelEvents.Load(this.levels.get(Level.OVERWORLD)).sendEvent();
     }
 
@@ -34,7 +33,7 @@ public class MinecraftServerMixin {
             ordinal = 1,
             shift = At.Shift.AFTER
     ))
-    private void onLoadWorld(ChunkProgressListener chunkProgressListener, CallbackInfo ci, @Local(index = 18) ResourceKey<Level> key) {
+    private void onLoadWorld(CallbackInfo ci, @Local(index = 18) ResourceKey<Level> key) {
         new LevelEvents.Load(levels.get(key)).sendEvent();
     }
 
