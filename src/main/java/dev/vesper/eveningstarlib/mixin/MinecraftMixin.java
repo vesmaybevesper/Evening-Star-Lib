@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-//? }
+//?}
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 @Mixin(Minecraft.class)
@@ -34,5 +34,5 @@ public class MinecraftMixin {
             new LevelEvents.Unload(this.level).sendEvent();
         }
     }
-    //? }
+    //?}
 }

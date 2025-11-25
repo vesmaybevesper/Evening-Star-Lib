@@ -3,6 +3,7 @@ package dev.vesper.eveningstarlib.fabric.events;
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.world.level.LevelAccessor;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class LevelEvents {
     private final LevelAccessor level;
@@ -16,7 +17,7 @@ public abstract class LevelEvents {
     }
 
     public static class Load extends LevelEvents{
-        public static final Event<Callback> LOAD = EventFactory.createArrayBacked(Callback.class, callbacks -> event -> {
+        public static final Event<@NotNull Callback> LOAD = EventFactory.createArrayBacked(Callback.class, callbacks -> event -> {
            for (Callback callback : callbacks)
                callback.onLoad(event);
         });
@@ -35,7 +36,7 @@ public abstract class LevelEvents {
     }
 
     public static class Unload extends LevelEvents{
-        public static final Event<Callback> UNLOAD = EventFactory.createArrayBacked(Callback.class, callbacks -> event -> {
+        public static final Event<@NotNull Callback> UNLOAD = EventFactory.createArrayBacked(Callback.class, callbacks -> event -> {
             for (Callback callback : callbacks)
                 callback.onUnload(event);
         });
@@ -53,4 +54,4 @@ public abstract class LevelEvents {
         }
     }
 }
-//? }
+//?}

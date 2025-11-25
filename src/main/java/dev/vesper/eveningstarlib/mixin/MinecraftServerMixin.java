@@ -5,13 +5,14 @@ import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
-//? }
+//?}
 import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.server.MinecraftServer;
 
@@ -20,7 +21,7 @@ public class MinecraftServerMixin {
 //? fabric {
     @Shadow
     @Final
-    private Map<ResourceKey<Level>, ServerLevel> levels;
+    private Map<ResourceKey<@NotNull Level>, ServerLevel> levels;
 
     @Inject(method = "createLevels", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/storage/ServerLevelData;isInitialized()Z"))
     private void onLoadOverworld(CallbackInfo ci){
@@ -33,7 +34,7 @@ public class MinecraftServerMixin {
             ordinal = 1,
             shift = At.Shift.AFTER
     ))
-    private void onLoadWorld(CallbackInfo ci, @Local(index = 18) ResourceKey<Level> key) {
+    private void onLoadWorld(CallbackInfo ci, @Local(index = 18) ResourceKey<@NotNull Level> key) {
         new LevelEvents.Load(levels.get(key)).sendEvent();
     }
 
@@ -41,5 +42,5 @@ public class MinecraftServerMixin {
     private void onStopServer(CallbackInfo ci, @Local(index = 2) ServerLevel serverLevel) {
         new LevelEvents.Unload(serverLevel).sendEvent();
     }
-//? }
+//?}
 }
