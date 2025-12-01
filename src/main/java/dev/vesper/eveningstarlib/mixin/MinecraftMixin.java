@@ -23,13 +23,13 @@ public class MinecraftMixin {
         if (this.level != null) new LevelEvents.Unload(this.level).sendEvent();
     }
 
-    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;Z)V", at = @At(
+    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;ZZ)V", at = @At(
             value = "FIELD",
             target = "Lnet/minecraft/client/Minecraft;level:Lnet/minecraft/client/multiplayer/ClientLevel;",
             ordinal = 0,
             shift = At.Shift.AFTER
     ))
-    private void onDisconnect(Screen screen, boolean bl, CallbackInfo ci) {
+    private void onDisconnect(Screen screen, boolean bl, boolean bl2, CallbackInfo ci) {
         if (this.level != null) {
             new LevelEvents.Unload(this.level).sendEvent();
         }
