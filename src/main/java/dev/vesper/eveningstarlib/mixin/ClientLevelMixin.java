@@ -28,7 +28,7 @@ public abstract class ClientLevelMixin extends Level {
 
     //? fabric {
     @Inject(method = "<init>", at = @At("TAIL"))
-    private void onLoad(ClientPacketListener clientPacketListener, ClientLevel.ClientLevelData clientLevelData, ResourceKey resourceKey, Holder holder, int i, int j, LevelRenderer levelRenderer, boolean bl, long l, int k, CallbackInfo ci){
+    private void onLoad(ClientPacketListener clientPacketListener, ClientLevel.ClientLevelData clientLevelData, ResourceKey<?> resourceKey, Holder<?> holder, int i, int j, LevelRenderer levelRenderer, boolean bl, long l, int k, CallbackInfo ci){
         new LevelEvents.Load(this).sendEvent();
     }
     //?}
