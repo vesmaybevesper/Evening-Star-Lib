@@ -1,6 +1,7 @@
 package dev.vesper.eveningstarlib.mixin;
 //? fabric {
 import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
+import net.minecraft.client.gui.screens.ReceivingLevelScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.jetbrains.annotations.Nullable;
@@ -19,17 +20,17 @@ public class MinecraftMixin {
     public ClientLevel level;
 
     @Inject(method = "setLevel", at = @At("HEAD"))
-    private void onUnload(ClientLevel clientLevel, CallbackInfo ci){
+    private void onUnload(ClientLevel clientLevel, ReceivingLevelScreen.Reason reason, CallbackInfo ci){
         if (this.level != null) new LevelEvents.Unload(this.level).sendEvent();
     }
 
-    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;ZZ)V", at = @At(
+    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;Z)V", at = @At(
             value = "FIELD",
             target = "Lnet/minecraft/client/Minecraft;level:Lnet/minecraft/client/multiplayer/ClientLevel;",
             ordinal = 0,
             shift = At.Shift.AFTER
     ))
-    private void onDisconnect(Screen screen, boolean bl, boolean bl2, CallbackInfo ci) {
+    private void onDisconnect(Screen screen, boolean bl, CallbackInfo ci) {
         if (this.level != null) {
             new LevelEvents.Unload(this.level).sendEvent();
         }

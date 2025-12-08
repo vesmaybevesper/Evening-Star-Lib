@@ -11,6 +11,6 @@ public class ESLRenderUtils {
 
     public static Vec3 getCameraPos(){
         Camera camera = getCamera();
-        return camera.position();
+        return camera.getPosition();
     }
 }
