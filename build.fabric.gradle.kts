@@ -23,9 +23,13 @@ tasks.named<ProcessResources>("processResources") {
     }
 }
 
-subprojects {
-    // I keep getting stone cutter errors so I need to fix that with some bullshit that'll prob go here im not figuring it out tn tho
-}
+
+tasks.named("processResources").configure { dependsOn("stonecutterGenerate") }
+tasks.named("postProcessMainResources").configure { dependsOn("stonecutterGenerate") }
+/*tasks.named("1.21.11-fabric:processResources").configure { dependsOn("1.21.11-fabric:stonecutterGenerate") }
+tasks.named("1.21.11-fabric:postProcessMainResources").configure { dependsOn("1.21.11-fabric:stonecutterGenerate") }
+tasks.named("1.21.6-fabric:postProcessMainResources").configure { dependsOn("1.21.6-fabric:stonecutterGenerate") }
+tasks.named("1.21.6-fabric:processResources").configure { dependsOn("1.21.6-fabric:stonecutterGenerate") }*/
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-fabric"
 base.archivesName = property("mod.id") as String
@@ -99,9 +103,9 @@ val additionalVersions: List<String> = additionalVersionsStr
 
 publishMods {
     file = tasks.remapJar.map { it.archiveFile.get() }
-    additionalFiles.from(tasks.remapSourcesJar.map { it.archiveFile.get() })
+   // additionalFiles.from(tasks.remapSourcesJar.map { it.archiveFile.get() })
 
-    type = BETA
+    type = STABLE
     displayName = "${property("mod.name")} ${property("mod.version")} for ${stonecutter.current.version} Fabric"
     version = "${property("mod.version")}+${property("deps.minecraft")}-fabric"
     changelog = provider { rootProject.file("CHANGELOG.md").readText() }
