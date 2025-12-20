@@ -48,3 +48,5 @@ bin/
 
 ### Jetbrains ###
 .idea/
+.env.template
+CHANGELOG.md
