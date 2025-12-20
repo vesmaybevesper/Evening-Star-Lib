@@ -8,9 +8,16 @@ public class ESLRenderUtils {
     public static Camera getCamera(){
         return Minecraft.getInstance().gameRenderer.getMainCamera();
     }
-
-    public static Vec3 getCameraPos(){
+//? >=1.21.6 {
+    /*public static Vec3 getCameraPos(){
         Camera camera = getCamera();
         return camera.position();
     }
+    *///?}
+    //? < 1.21.6 {
+    public static Vec3 getCameraPos(){
+        Camera camera = getCamera();
+        return camera.getPosition();
+    }
+    //?}
 }

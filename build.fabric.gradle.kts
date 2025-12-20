@@ -23,6 +23,10 @@ tasks.named<ProcessResources>("processResources") {
     }
 }
 
+subprojects {
+    // I keep getting stone cutter errors so I need to fix that with some bullshit that'll prob go here im not figuring it out tn tho
+}
+
 version = "${property("mod.version")}+${property("deps.minecraft")}-fabric"
 base.archivesName = property("mod.id") as String
 

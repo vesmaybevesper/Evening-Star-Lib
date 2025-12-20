@@ -1,6 +1,7 @@
 package dev.vesper.eveningstarlib.mixin;
 //? fabric {
 import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
+import net.minecraft.client.gui.screens.ReceivingLevelScreen;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.jetbrains.annotations.Nullable;
@@ -17,13 +18,20 @@ public class MinecraftMixin {
     @Shadow
     @Nullable
     public ClientLevel level;
-
-    @Inject(method = "setLevel", at = @At("HEAD"))
+//? >=1.21.9 {
+    /*@Inject(method = "setLevel", at = @At("HEAD"))
     private void onUnload(ClientLevel clientLevel, CallbackInfo ci){
         if (this.level != null) new LevelEvents.Unload(this.level).sendEvent();
     }
-
-    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;ZZ)V", at = @At(
+    *///?}
+    //? <1.21.9 {
+@Inject(method = "setLevel", at = @At("HEAD"))
+private void onUnload(ClientLevel clientLevel, ReceivingLevelScreen.Reason reason, CallbackInfo ci){
+    if (this.level != null) new LevelEvents.Unload(this.level).sendEvent();
+}
+    //?}
+//? 1.21.11 {
+    /*@Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;ZZ)V", at = @At(
             value = "FIELD",
             target = "Lnet/minecraft/client/Minecraft;level:Lnet/minecraft/client/multiplayer/ClientLevel;",
             ordinal = 0,
@@ -34,5 +42,34 @@ public class MinecraftMixin {
             new LevelEvents.Unload(this.level).sendEvent();
         }
     }
+    *///?}
+    //? <1.21.11 && >=1.21.6 {
+/*@Inject(method = "disconnect", at = @At(
+        value = "FIELD",
+        target = "Lnet/minecraft/client/Minecraft;level:Lnet/minecraft/client/multiplayer/ClientLevel;",
+        ordinal = 0,
+        shift = At.Shift.AFTER
+))
+private void onDisconnect(Screen screen, boolean bl, CallbackInfo ci) {
+    if (this.level != null) {
+        new LevelEvents.Unload(this.level).sendEvent();
+    }
+}
+    *///?}
+
+    //? <1.21.6 {
+    @Inject(method = "disconnect(Lnet/minecraft/client/gui/screens/Screen;Z)V", at = @At(
+            value = "FIELD",
+            target = "Lnet/minecraft/client/Minecraft;level:Lnet/minecraft/client/multiplayer/ClientLevel;",
+            ordinal = 0,
+            shift = At.Shift.AFTER
+    ))
+    private void onDisconnect(Screen screen, boolean bl, CallbackInfo ci) {
+        if (this.level != null) {
+            new LevelEvents.Unload(this.level).sendEvent();
+        }
+    }
+    //?}
+
     //?}
 }
