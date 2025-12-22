@@ -26,10 +26,6 @@ tasks.named<ProcessResources>("processResources") {
 
 tasks.named("processResources").configure { dependsOn("stonecutterGenerate") }
 tasks.named("postProcessMainResources").configure { dependsOn("stonecutterGenerate") }
-/*tasks.named("1.21.11-fabric:processResources").configure { dependsOn("1.21.11-fabric:stonecutterGenerate") }
-tasks.named("1.21.11-fabric:postProcessMainResources").configure { dependsOn("1.21.11-fabric:stonecutterGenerate") }
-tasks.named("1.21.6-fabric:postProcessMainResources").configure { dependsOn("1.21.6-fabric:stonecutterGenerate") }
-tasks.named("1.21.6-fabric:processResources").configure { dependsOn("1.21.6-fabric:stonecutterGenerate") }*/
 
 version = "${property("mod.version")}+${property("deps.minecraft")}-fabric"
 base.archivesName = property("mod.id") as String
@@ -87,6 +83,8 @@ java {
     withSourcesJar()
     val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=1.21")) {
         JavaVersion.VERSION_21
+    } else if (stonecutter.eval(stonecutter.current.version, ">=26.1")) {
+        JavaVersion.VERSION_25
     } else {
         JavaVersion.VERSION_17
     }

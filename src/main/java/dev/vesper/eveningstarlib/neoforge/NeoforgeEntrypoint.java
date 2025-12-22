@@ -10,7 +10,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 
 
 @Mod(EveningStarLib.MOD_ID)
-@EventBusSubscriber // sample_content
 public class NeoforgeEntrypoint {
 
     public NeoforgeEntrypoint() {

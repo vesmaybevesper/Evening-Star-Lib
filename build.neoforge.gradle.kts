@@ -84,8 +84,10 @@ tasks {
 
 java {
     withSourcesJar()
-    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=1.20.5")) {
+    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=1.21")) {
         JavaVersion.VERSION_21
+    } else if (stonecutter.eval(stonecutter.current.version, ">=26.1")) {
+        JavaVersion.VERSION_25
     } else {
         JavaVersion.VERSION_17
     }
