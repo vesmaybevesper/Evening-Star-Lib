@@ -1,4 +1,4 @@
-package dev.vesper.eveningstarlib.mixin;
+package dev.vesper.eveningstarlib.mixin.events;
 //? fabric {
 import com.llamalad7.mixinextras.sugar.Local;
 import dev.vesper.eveningstarlib.fabric.events.LevelEvents;

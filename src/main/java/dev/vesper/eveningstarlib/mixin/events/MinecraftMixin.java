@@ -1,4 +1,4 @@
-package dev.vesper.eveningstarlib.mixin;
+package dev.vesper.eveningstarlib.mixin.events;
 //? fabric {
 import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
 //? <1.21.9{
