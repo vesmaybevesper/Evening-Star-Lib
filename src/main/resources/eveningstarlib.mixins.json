@@ -7,11 +7,13 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "ClientPacketListener",
-    "MinecraftServerMixin"
+    "events.ClientPacketListener",
+    "events.MinecraftServerMixin"
   ],
   "client": [
-    "ClientLevelMixin",
-    "MinecraftMixin"
+    "FogTestMixin",
+    "GameRenderMixin",
+    "events.ClientLevelMixin",
+    "events.MinecraftMixin"
   ]
 }
