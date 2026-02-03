@@ -33,7 +33,7 @@ repositories{
 }
 
 dependencies{
-    compileOnly("maven.modrinth:iris:${property("deps.iris")}")
+    //compileOnly("maven.modrinth:iris:${property("deps.iris")}")
 }
 
 neoForge {

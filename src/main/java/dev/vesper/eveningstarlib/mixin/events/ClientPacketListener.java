@@ -2,13 +2,18 @@ package dev.vesper.eveningstarlib.mixin.events;
 
 
 //? fabric {
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.vesper.eveningstarlib.fabric.events.ClientRespawnEventCallback;
 //?}
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientCommonPacketListenerImpl;
 import net.minecraft.client.multiplayer.CommonListenerCookie;
-        import net.minecraft.network.Connection;
-        import org.spongepowered.asm.mixin.Mixin;
+import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.network.Connection;
+import net.minecraft.world.entity.Entity;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(net.minecraft.client.multiplayer.ClientPacketListener.class)
 public abstract class ClientPacketListener extends ClientCommonPacketListenerImpl {

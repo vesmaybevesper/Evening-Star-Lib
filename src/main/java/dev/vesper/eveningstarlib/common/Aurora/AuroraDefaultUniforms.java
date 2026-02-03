@@ -7,12 +7,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
-//? < 1.21.11{
-import net.minecraft.resources.ResourceLocation;
-//?}
-//? >= 1.21.11{
-/*import net.minecraft.resources.Identifier;
-*///?}
+import net.minecraft.resources.Identifier;
+
 
 public class AuroraDefaultUniforms {
 
@@ -58,13 +54,11 @@ public class AuroraDefaultUniforms {
     private static void updateLightInfo(Minecraft minecraft) {
         BlockPos pos = minecraft.player.blockPosition();
 
-        //? < 1.21.11{
-        Aurora.setUniform("moonPhase", minecraft.level.getMoonPhase());
-        //?} >= 1.21.11{
-            /*long dayNumber = minecraft.level.getDayTime() / 24000L;
-            int moonPhase = (int) (dayNumber % 8L);
+
+        long dayNumber = minecraft.level.getDayTime() / 24000L;
+        int moonPhase = (int) (dayNumber % 8L);
         Aurora.setUniform("moonPhase", moonPhase);
-        *///?}
+
 
         int skyLight = minecraft.level.getBrightness(LightLayer.SKY, pos);
         Aurora.setUniform("skyLight", skyLight);
@@ -92,11 +86,8 @@ public class AuroraDefaultUniforms {
 
     private static void updateDimensionInfo(Minecraft minecraft) {
         ClientLevel level = minecraft.level;
-        //? <1.21.11{
-        ResourceLocation dimLocation = level.dimension().location();
-        //?} >= 1.21.11 {
-        /*Identifier dimLocation = level.dimension().identifier();
-        *///?}
+        Identifier dimLocation = level.dimension().identifier();
+
 
         int dimId = calculateDim(dimLocation);
 
@@ -114,12 +105,8 @@ public class AuroraDefaultUniforms {
         ClientLevel level = minecraft.level;
 
         long worldTime = level.getGameTime();
-        //? < 1.21.11{
-        long sunAngle = (long) level.getSunAngle(1.0f);
-        //?}
         // Math could be wrong here only one way to find out!
-        //? >= 1.21.11{
-        /*long daytime = level.getDayTime();
+        long daytime = level.getDayTime();
         float fractionalDayTime =  (daytime % 24000L) + 1.0f;
         float normalizedDayTime  = fractionalDayTime / 24000f;
         float celestialAngle = normalizedDayTime - 0.25f;
@@ -129,7 +116,7 @@ public class AuroraDefaultUniforms {
         }
 
         float sunAngle = 0.5f - Mth.cos(celestialAngle * Mth.PI) / 2f;
-        *///?}
+
 
         Aurora.setUniform("worldTime", worldTime);
         Aurora.setUniform("sunAngle", sunAngle);
@@ -150,8 +137,7 @@ public class AuroraDefaultUniforms {
         }
     }
 
-    //? <1.21.11{
-    private static int calculateDim(ResourceLocation dimLocation) {
+    private static int calculateDim(Identifier dimLocation) {
         String path = dimLocation.getPath();
 
         if (path.contains("overworld")) return 0;
@@ -159,15 +145,4 @@ public class AuroraDefaultUniforms {
         if (path.contains("the_end")) return 2;
         return 99;
     }
-    //?}
-    //? >= 1.21.11{
-    /*private static int calculateDim(Identifier dimLocation) {
-        String path = dimLocation.getPath();
-
-        if (path.contains("overworld")) return 0;
-        if (path.contains("the_nether")) return 1;
-        if (path.contains("the_end")) return 2;
-        return 99;
-    }
-    *///?}
 }

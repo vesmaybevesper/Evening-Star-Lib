@@ -2,9 +2,8 @@
 
 import java.net.URI
 
-
 plugins {
-    id("fabric-loom")
+    id("net.fabricmc.fabric-loom")
     id("dev.kikugie.postprocess.jsonlang")
     id("me.modmuss50.mod-publish-plugin")
 }
@@ -46,17 +45,12 @@ repositories {
 
 dependencies {
     minecraft("com.mojang:minecraft:${property("deps.minecraft")}")
-    mappings(loom.layered {
-        officialMojangMappings()
-        if (hasProperty("deps.parchment"))
-            parchment("org.parchmentmc.data:parchment-${property("deps.parchment")}@zip")
-    })
-    modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
-    compileOnly("maven.modrinth:iris:${property("deps.iris")}")
+    implementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
+    implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
+    //compileOnly("maven.modrinth:iris:${property("deps.iris")}")
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
-    for (it in modules) modImplementation(fabricApi.module("fabric-$it", property("deps.fabric-api") as String))
+    for (it in modules) implementation(fabricApi.module("fabric-$it", property("deps.fabric-api") as String))
 }
 
 fabricApi {
@@ -73,7 +67,6 @@ tasks {
 
     register<Copy>("buildAndCollect") {
         group = "build"
-        from(remapJar.map { it.archiveFile })
         into(rootProject.layout.buildDirectory.file("libs/${project.property("mod.version")}"))
         dependsOn("build")
     }
@@ -81,13 +74,7 @@ tasks {
 
 java {
     withSourcesJar()
-    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=1.21")) {
-        JavaVersion.VERSION_21
-    } else if (stonecutter.eval(stonecutter.current.version, ">=26.1")) {
-        JavaVersion.VERSION_25
-    } else {
-        JavaVersion.VERSION_17
-    }
+    val javaCompat = JavaVersion.VERSION_25
     sourceCompatibility = javaCompat
     targetCompatibility = javaCompat
 }
@@ -100,7 +87,6 @@ val additionalVersions: List<String> = additionalVersionsStr
     ?: emptyList()
 
 publishMods {
-    file = tasks.remapJar.map { it.archiveFile.get() }
    // additionalFiles.from(tasks.remapSourcesJar.map { it.archiveFile.get() })
 
     type = STABLE

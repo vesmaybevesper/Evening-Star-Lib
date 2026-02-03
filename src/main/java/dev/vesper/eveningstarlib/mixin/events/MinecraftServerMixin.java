@@ -39,7 +39,7 @@ public class MinecraftServerMixin {
     }
 
     @Inject(method = "stopServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;close()V"))
-    private void onStopServer(CallbackInfo ci, @Local(index = 2) ServerLevel serverLevel) {
+    private void onStopServer(CallbackInfo ci, @Local(name = "level") ServerLevel serverLevel) {
         new LevelEvents.Unload(serverLevel).sendEvent();
     }
 //?}
