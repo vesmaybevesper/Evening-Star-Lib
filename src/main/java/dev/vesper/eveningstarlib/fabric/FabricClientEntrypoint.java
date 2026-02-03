@@ -4,7 +4,7 @@ package dev.vesper.eveningstarlib.fabric;
 import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.vesper.eveningstarlib.common.Aurora.AuroraDefaultUniforms;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 
 public class FabricClientEntrypoint implements ClientModInitializer {
 
@@ -14,7 +14,7 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 
         AuroraDefaultUniforms.registerAll();
 
-        WorldRenderEvents.BEFORE_ENTITIES.register(worldRenderContext -> {AuroraDefaultUniforms.updateAll();});
+        LevelRenderEvents.BEFORE_ENTITIES.register(worldRenderContext -> {AuroraDefaultUniforms.updateAll();});
     }
 
 }
