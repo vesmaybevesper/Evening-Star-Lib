@@ -34,8 +34,8 @@ public class MinecraftServerMixin {
             ordinal = 1,
             shift = At.Shift.AFTER
     ))
-    private void onLoadWorld(CallbackInfo ci, @Local(index = 18) ResourceKey<@NotNull Level> key) {
-        new LevelEvents.Load(levels.get(key)).sendEvent();
+    private void onLoadWorld(CallbackInfo ci, @Local(name = "dimension") ResourceKey<Level> dimension) {
+        new LevelEvents.Load(levels.get(dimension)).sendEvent();
     }
 
     @Inject(method = "stopServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/level/ServerLevel;close()V"))
