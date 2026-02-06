@@ -5,6 +5,7 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.resources.Identifier;
@@ -54,8 +55,7 @@ public class AuroraDefaultUniforms {
     private static void updateLightInfo(Minecraft minecraft) {
         BlockPos pos = minecraft.player.blockPosition();
 
-
-        long dayNumber = minecraft.level.getDayTime() / 24000L;
+        long dayNumber = minecraft.level.getDefaultClockTime() / 24000L;
         int moonPhase = (int) (dayNumber % 8L);
         Aurora.setUniform("moonPhase", moonPhase);
 
@@ -74,8 +74,8 @@ public class AuroraDefaultUniforms {
 
     private static void updatePlayerInfo(Minecraft minecraft) {
         LocalPlayer player = minecraft.player;
-
         Vec3 pos = player.position();
+
         Aurora.setUniform("playerX", (float) pos.x);
         Aurora.setUniform("playerY", (float) pos.y);
         Aurora.setUniform("playerZ", (float) pos.z);
@@ -87,7 +87,6 @@ public class AuroraDefaultUniforms {
     private static void updateDimensionInfo(Minecraft minecraft) {
         ClientLevel level = minecraft.level;
         Identifier dimLocation = level.dimension().identifier();
-
 
         int dimId = calculateDim(dimLocation);
 
@@ -101,22 +100,23 @@ public class AuroraDefaultUniforms {
     private static void updateBiomeInfo(Minecraft minecraft) {
     }
 
+    /*
+     * Sun Angle calculation derived from Iris
+     */
     private static void updateTimeAndWeather(Minecraft minecraft) {
         ClientLevel level = minecraft.level;
 
-        long worldTime = level.getGameTime();
-        // Math could be wrong here only one way to find out!
-        long daytime = level.getDayTime();
-        float fractionalDayTime =  (daytime % 24000L) + 1.0f;
-        float normalizedDayTime  = fractionalDayTime / 24000f;
-        float celestialAngle = normalizedDayTime - 0.25f;
+        long worldTime = level.getDefaultClockTime();
+        //this SHOULD be correct but i need to test a lot more
+        float currentAngle = Minecraft.getInstance().gameRenderer.getMainCamera().attributeProbe().getValue(EnvironmentAttributes.SUN_ANGLE, Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(true));
 
-        if (celestialAngle < 0.0f) {
-            celestialAngle += 1.0f;
+        float sunAngle = currentAngle + 90.0f;
+
+        if (sunAngle < 0) {
+            sunAngle += 360.0f;
+        } else if (sunAngle > 360.0f) {
+            sunAngle -= 360.0f;
         }
-
-        float sunAngle = 0.5f - Mth.cos(celestialAngle * Mth.PI) / 2f;
-
 
         Aurora.setUniform("worldTime", worldTime);
         Aurora.setUniform("sunAngle", sunAngle);

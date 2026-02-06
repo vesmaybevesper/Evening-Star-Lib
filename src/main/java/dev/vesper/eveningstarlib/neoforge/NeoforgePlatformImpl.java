@@ -15,6 +15,5 @@ public class NeoforgePlatformImpl implements Platform {
     public String loader() {
         return "neoforge";
     }
-
 }
 *///?}
