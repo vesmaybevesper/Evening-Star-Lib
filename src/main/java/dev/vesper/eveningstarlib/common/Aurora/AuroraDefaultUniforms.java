@@ -8,7 +8,9 @@ import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.resources.Identifier;
+import org.apache.logging.log4j.util.InternalApi;
 
+@InternalApi
 public class AuroraDefaultUniforms {
 
     private static int lastDimensionId = -1;

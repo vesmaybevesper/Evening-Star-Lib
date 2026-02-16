@@ -1,12 +1,14 @@
 package dev.vesper.eveningstarlib.common.Aurora;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import org.apache.logging.log4j.util.InternalApi;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL20;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@InternalApi
 public class AuroraUploader {
     private static final Map<Integer, Map<String, Integer>> uniformLocationMap = new HashMap<>();
     private static int lastProgram = -1;

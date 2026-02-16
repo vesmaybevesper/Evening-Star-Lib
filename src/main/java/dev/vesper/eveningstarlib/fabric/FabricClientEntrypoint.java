@@ -13,8 +13,8 @@ public class FabricClientEntrypoint implements ClientModInitializer {
         EveningStarLib.LOG.info("Initializing {} Client", EveningStarLib.MOD_ID);
 
         AuroraDefaultUniforms.registerAll();
-
-        LevelRenderEvents.BEFORE_ENTITIES.register(worldRenderContext -> {AuroraDefaultUniforms.updateAll();});
+        // Not sure if this is the right event, was BEFORE_ENTITIES before the FAPI changes
+        LevelRenderEvents.AFTER_OPAQUE_TERRAIN.register(worldRenderContext -> {AuroraDefaultUniforms.updateAll();});
     }
 
 }

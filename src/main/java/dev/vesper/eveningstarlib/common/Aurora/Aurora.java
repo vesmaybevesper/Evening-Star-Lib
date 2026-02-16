@@ -1,10 +1,13 @@
 package dev.vesper.eveningstarlib.common.Aurora;
 
 
+import io.netty.util.internal.UnstableApi;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+@UnstableApi
 public class Aurora {
 
     private static final Map<String, UniformData> uniforms = new ConcurrentHashMap<>();
