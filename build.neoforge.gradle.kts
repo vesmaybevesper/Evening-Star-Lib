@@ -33,7 +33,7 @@ repositories{
 }
 
 dependencies{
-    //compileOnly("maven.modrinth:iris:${property("deps.iris")}")
+    compileOnly("maven.modrinth:iris:${property("deps.iris")}")
 }
 
 neoForge {
@@ -84,13 +84,7 @@ tasks {
 
 java {
     withSourcesJar()
-    val javaCompat = if (stonecutter.eval(stonecutter.current.version, ">=1.21")) {
-        JavaVersion.VERSION_21
-    } else if (stonecutter.eval(stonecutter.current.version, ">=26.1")) {
-        JavaVersion.VERSION_25
-    } else {
-        JavaVersion.VERSION_17
-    }
+    val javaCompat = JavaVersion.VERSION_25
     sourceCompatibility = javaCompat
     targetCompatibility = javaCompat
 }
