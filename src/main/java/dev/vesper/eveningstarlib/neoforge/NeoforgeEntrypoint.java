@@ -2,7 +2,6 @@ package dev.vesper.eveningstarlib.neoforge;
 
 //? neoforge {
 /*import dev.vesper.eveningstarlib.EveningStarLib;
-import dev.vesper.eveningstarlib.common.Aurora.AuroraDefaultUniforms;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -24,13 +23,14 @@ public class NeoforgeEntrypoint {
         public static void onClientSetup(final FMLClientSetupEvent event) {
             EveningStarLib.LOG.info("Initializing {} Client", EveningStarLib.MOD_ID);
 
-            AuroraDefaultUniforms.registerAll();
+            // AuroraDefaultUniforms.registerAll();
         }
 
-        @SubscribeEvent
+        // I'm 45% sure this is the wrong event and that it should happen slightly sooner
+        /^@SubscribeEvent
         public static void onRenderLevelStage(RenderLevelStageEvent.AfterWeather event) {
             AuroraDefaultUniforms.updateAll();
-        }
+        }^/
     }
 }
 *///?}

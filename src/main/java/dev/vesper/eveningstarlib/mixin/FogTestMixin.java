@@ -18,13 +18,5 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class FogTestMixin {
 
     @Inject(method = "setupFog", at = @At("RETURN"))
-    private void setupFog(Camera camera, int renderDistanceInChunks, DeltaTracker deltaTracker, float darkenWorldAmount, ClientLevel level, CallbackInfoReturnable<Vector4f> cir) {
-        Minecraft minecraft = Minecraft.getInstance();
-        if(minecraft.level == null || minecraft.player == null) return;
-
-        BlockPos blockPos = camera.blockPosition();
-        Holder<Biome> biome = minecraft.level.getBiome(blockPos);
-
-
-    }
+    private void setupFog(Camera camera, int renderDistanceInChunks, DeltaTracker deltaTracker, float darkenWorldAmount, ClientLevel level, CallbackInfoReturnable<Vector4f> cir) {}
 }

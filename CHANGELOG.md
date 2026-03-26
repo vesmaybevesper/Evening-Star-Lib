@@ -1,1 +1,2 @@
 - Port to 26.1
+  - [NeoForge] isShaders() temp disabled due to no Iris for Neo at time of publishing

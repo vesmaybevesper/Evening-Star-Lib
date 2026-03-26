@@ -1,5 +1,6 @@
 package dev.vesper.eveningstarlib.common.Aurora;
 
+import com.google.common.annotations.Beta;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
@@ -10,7 +11,10 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.resources.Identifier;
 import org.apache.logging.log4j.util.InternalApi;
 
-@InternalApi
+// WIP disabled in production until its more ready :)
+
+/*@InternalApi
+@Beta
 public class AuroraDefaultUniforms {
 
     private static int lastDimensionId = -1;
@@ -100,9 +104,9 @@ public class AuroraDefaultUniforms {
     private static void updateBiomeInfo(Minecraft minecraft) {
     }
 
-    /*
+    *//*
      * Sun Angle calculation derived from Iris
-     */
+     *//*
     private static void updateTimeAndWeather(Minecraft minecraft) {
         ClientLevel level = minecraft.level;
 
@@ -145,4 +149,4 @@ public class AuroraDefaultUniforms {
         if (path.contains("the_end")) return 2;
         return 99;
     }
-}
+}*/

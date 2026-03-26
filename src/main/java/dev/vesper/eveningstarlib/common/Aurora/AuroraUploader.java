@@ -1,5 +1,6 @@
 package dev.vesper.eveningstarlib.common.Aurora;
 
+import com.google.common.annotations.Beta;
 import com.mojang.blaze3d.systems.RenderSystem;
 import org.apache.logging.log4j.util.InternalApi;
 import org.lwjgl.opengl.GL11;
@@ -8,7 +9,11 @@ import org.lwjgl.opengl.GL20;
 import java.util.HashMap;
 import java.util.Map;
 
+// WIP disabled in production until its more ready :)
+
+/*
 @InternalApi
+@Beta
 public class AuroraUploader {
     private static final Map<Integer, Map<String, Integer>> uniformLocationMap = new HashMap<>();
     private static int lastProgram = -1;
@@ -85,3 +90,4 @@ public class AuroraUploader {
         return name.replace(":", "_").replace("-", "_").replace(".", "_");
     }
 }
+*/
