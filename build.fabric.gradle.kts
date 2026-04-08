@@ -87,6 +87,7 @@ val additionalVersions: List<String> = additionalVersionsStr
     ?: emptyList()
 
 publishMods {
+    file = tasks.jar.map { it.archiveFile.get() }
    // additionalFiles.from(tasks.remapSourcesJar.map { it.archiveFile.get() })
 
     type = STABLE

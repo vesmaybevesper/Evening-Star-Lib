@@ -1,8 +1,8 @@
 package dev.vesper.eveningstarlib.mixin.events;
 
 //? fabric {
-import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
-//?}
+/*import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
+*///?}
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.core.Holder;
@@ -25,10 +25,10 @@ public abstract class ClientLevelMixin extends Level {
 
     //? fabric {
 
-    @Inject(method = "<init>", at = @At("TAIL"))
+    /*@Inject(method = "<init>", at = @At("TAIL"))
     private void onLoad(net.minecraft.client.multiplayer.ClientPacketListener connection, ClientLevel.ClientLevelData levelData, ResourceKey dimension, Holder dimensionType, int serverChunkRadius, int serverSimulationDistance, LevelRenderer levelRenderer, boolean isDebug, long biomeZoomSeed, int seaLevel, CallbackInfo ci){
         new LevelEvents.Load(this).sendEvent();
     }
 
-    //?}
+    *///?}
 }

@@ -1,7 +1,7 @@
 package dev.vesper.eveningstarlib.fabric;
 
 //? fabric {
-import dev.vesper.eveningstarlib.EveningStarLib;
+/*import dev.vesper.eveningstarlib.EveningStarLib;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
 
@@ -17,4 +17,4 @@ public class FabricClientEntrypoint implements ClientModInitializer {
     }
 
 }
-//?}
+*///?}

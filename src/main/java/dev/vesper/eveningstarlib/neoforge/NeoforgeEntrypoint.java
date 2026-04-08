@@ -1,7 +1,7 @@
 package dev.vesper.eveningstarlib.neoforge;
 
 //? neoforge {
-/*import dev.vesper.eveningstarlib.EveningStarLib;
+import dev.vesper.eveningstarlib.EveningStarLib;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -27,10 +27,10 @@ public class NeoforgeEntrypoint {
         }
 
         // I'm 45% sure this is the wrong event and that it should happen slightly sooner
-        /^@SubscribeEvent
+        /*@SubscribeEvent
         public static void onRenderLevelStage(RenderLevelStageEvent.AfterWeather event) {
             AuroraDefaultUniforms.updateAll();
-        }^/
+        }*/
     }
 }
-*///?}
+//?}

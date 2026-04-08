@@ -1,7 +1,7 @@
 package dev.vesper.eveningstarlib.fabric;
 
 //? fabric {
-import dev.vesper.eveningstarlib.Platform;
+/*import dev.vesper.eveningstarlib.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatformImpl implements Platform {
@@ -17,4 +17,4 @@ public class FabricPlatformImpl implements Platform {
     }
 
 }
-//?}
+*///?}
