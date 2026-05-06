@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 // WIP disabled in production until its more ready :)
 
-/*
+
 @UnstableApi
 @Beta
 public class Aurora {
@@ -121,4 +121,4 @@ public class Aurora {
             return glslType;
         }
     }
-}*/
+}

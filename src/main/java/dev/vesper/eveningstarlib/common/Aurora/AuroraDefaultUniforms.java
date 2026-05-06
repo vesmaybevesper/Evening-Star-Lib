@@ -13,7 +13,7 @@ import org.apache.logging.log4j.util.InternalApi;
 
 // WIP disabled in production until its more ready :)
 
-/*@InternalApi
+@InternalApi
 @Beta
 public class AuroraDefaultUniforms {
 
@@ -57,8 +57,10 @@ public class AuroraDefaultUniforms {
     }
 
     private static void updateLightInfo(Minecraft minecraft) {
+        assert minecraft.player != null;
         BlockPos pos = minecraft.player.blockPosition();
 
+        assert minecraft.level != null;
         long dayNumber = minecraft.level.getDefaultClockTime() / 24000L;
         int moonPhase = (int) (dayNumber % 8L);
         Aurora.setUniform("moonPhase", moonPhase);
@@ -69,7 +71,11 @@ public class AuroraDefaultUniforms {
     }
 
     private static void updateCameraInfo(Minecraft minecraft) {
-        Vec3 cameraPos = minecraft.gameRenderer.getMainCamera().position();
+        //? <=26.1{
+        /*Vec3 cameraPos = minecraft.gameRenderer.getMainCamera().position();
+        *///?} >=26.2{
+        Vec3 cameraPos = minecraft.gameRenderer.mainCamera().position();
+        //?}
         Aurora.setUniform("cameraX", (float) cameraPos.x);
         Aurora.setUniform("cameraY", (float) cameraPos.y);
         Aurora.setUniform("cameraZ", (float) cameraPos.z);
@@ -78,18 +84,20 @@ public class AuroraDefaultUniforms {
 
     private static void updatePlayerInfo(Minecraft minecraft) {
         LocalPlayer player = minecraft.player;
+        assert player != null;
         Vec3 pos = player.position();
 
         Aurora.setUniform("playerX", (float) pos.x);
         Aurora.setUniform("playerY", (float) pos.y);
         Aurora.setUniform("playerZ", (float) pos.z);
         Aurora.setUniform("playerPos", (float) pos.x, (float) pos.y, (float) pos.z);
-        Aurora.setUniform("isUnderwanter", player.isUnderWater());
+        Aurora.setUniform("isUnderwater", player.isUnderWater());
         Aurora.setUniform("isInLava", player.isInLava());
     }
 
     private static void updateDimensionInfo(Minecraft minecraft) {
         ClientLevel level = minecraft.level;
+        assert level != null;
         Identifier dimLocation = level.dimension().identifier();
 
         int dimId = calculateDim(dimLocation);
@@ -98,21 +106,27 @@ public class AuroraDefaultUniforms {
             Aurora.setUniform("isOverworld", dimId == 0);
             Aurora.setUniform("isNether", dimId == 1);
             Aurora.setUniform("isEnd", dimId == 2);
+            lastDimensionId = dimId;
         }
     }
 
     private static void updateBiomeInfo(Minecraft minecraft) {
     }
 
-    *//*
-     * Sun Angle calculation derived from Iris
-     *//*
+    //*
+    //* Sun Angle calculation derived from Iris
+    //*
     private static void updateTimeAndWeather(Minecraft minecraft) {
         ClientLevel level = minecraft.level;
 
+        assert level != null;
         long worldTime = level.getDefaultClockTime();
         //this SHOULD be correct but i need to test a lot more
-        float currentAngle = Minecraft.getInstance().gameRenderer.getMainCamera().attributeProbe().getValue(EnvironmentAttributes.SUN_ANGLE, Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(true));
+        //? <=26.1{
+        /*float currentAngle = Minecraft.getInstance().gameRenderer.getMainCamera().attributeProbe().getValue(EnvironmentAttributes.SUN_ANGLE, Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(true));
+        *///?} >=26.2 {
+        float currentAngle = Minecraft.getInstance().gameRenderer.mainCamera().attributeProbe().getValue(EnvironmentAttributes.SUN_ANGLE, Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(true));
+        //?}
 
         float sunAngle = currentAngle + 90.0f;
 
@@ -149,4 +163,4 @@ public class AuroraDefaultUniforms {
         if (path.contains("the_end")) return 2;
         return 99;
     }
-}*/
+}
