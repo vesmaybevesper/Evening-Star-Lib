@@ -29,10 +29,10 @@ public class AuroraUploader {
             return;
         }
 
-        uploadUniforms(commandBuffer, pipelineLayout);
+        writeUniforms(commandBuffer, pipelineLayout);
     }
 
-    private static void uploadUniforms(VkCommandBuffer commandBuffer, long pipelineLayout) {
+    private static void writeUniforms(VkCommandBuffer commandBuffer, long pipelineLayout) {
         Map<String, Aurora.UniformData> uniforms = Aurora.getAllUniforms();
         if (uniforms.isEmpty()) return;
 
