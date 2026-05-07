@@ -1,9 +1,9 @@
 package dev.vesper.eveningstarlib.mixin.events;
 //? fabric {
-/*import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
+import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
 //? <1.21.9{
-/^import net.minecraft.client.gui.screens.ReceivingLevelScreen;
-^///?}
+/*import net.minecraft.client.gui.screens.ReceivingLevelScreen;
+*///?}
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.jetbrains.annotations.Nullable;
@@ -11,13 +11,13 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-*///?}
+//?}
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 @Mixin(Minecraft.class)
 public class MinecraftMixin {
     //? fabric {
-    /*@Shadow
+    @Shadow
     @Nullable
     public ClientLevel level;
 
@@ -39,5 +39,5 @@ public class MinecraftMixin {
     }
 
 
-    *///?}
+    //?}
 }

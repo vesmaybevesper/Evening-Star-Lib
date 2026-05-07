@@ -2,9 +2,9 @@ package dev.vesper.eveningstarlib.mixin.events;
 
 
 //? fabric {
-/*import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.vesper.eveningstarlib.fabric.events.ClientRespawnEventCallback;
-*///?}
+//?}
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientCommonPacketListenerImpl;
 import net.minecraft.client.multiplayer.CommonListenerCookie;
@@ -22,12 +22,12 @@ public abstract class ClientPacketListener extends ClientCommonPacketListenerImp
         super(minecraft, connection, commonListenerCookie);
     }
     //? fabric {
-    /*@ModifyArg(method = "handleRespawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;addEntity(Lnet/minecraft/world/entity/Entity;)V"))
+    @ModifyArg(method = "handleRespawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;addEntity(Lnet/minecraft/world/entity/Entity;)V"))
     private Entity onClientPlayerRespawn(Entity entity, @Local(ordinal = 0) LocalPlayer localPlayer){
         LocalPlayer player = (LocalPlayer) entity;
         ClientRespawnEventCallback.EVENT.invoker().onRespawn(this.minecraft.gameMode, localPlayer, player, this.connection);
         return entity;
     }
-    *///?}
+    //?}
 }
 

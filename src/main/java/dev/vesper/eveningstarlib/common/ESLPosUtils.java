@@ -45,4 +45,9 @@ public class ESLPosUtils {
         Random random = new Random();
         return random.nextDouble(range + 1) - range;
     }
+
+    public static double particleOffset(double range){
+        Random random = new Random();
+        return (random.nextDouble(range + 1) - range) / 10000;
+    }
 }

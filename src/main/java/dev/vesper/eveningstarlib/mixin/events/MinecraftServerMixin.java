@@ -1,6 +1,6 @@
 package dev.vesper.eveningstarlib.mixin.events;
 //? fabric {
-/*import com.llamalad7.mixinextras.sugar.Local;
+import com.llamalad7.mixinextras.sugar.Local;
 import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
@@ -12,14 +12,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import java.util.Map;
-*///?}
+//?}
 import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.server.MinecraftServer;
 
 @Mixin(MinecraftServer.class)
 public class MinecraftServerMixin {
 //? fabric {
-    /*@Shadow
+    @Shadow
     @Final
     private Map<ResourceKey<@NotNull Level>, ServerLevel> levels;
 
@@ -42,5 +42,5 @@ public class MinecraftServerMixin {
     private void onStopServer(CallbackInfo ci, @Local(name = "level") ServerLevel serverLevel) {
         new LevelEvents.Unload(serverLevel).sendEvent();
     }
-*///?}
+//?}
 }
