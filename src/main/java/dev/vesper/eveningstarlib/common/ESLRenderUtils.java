@@ -6,7 +6,11 @@ import net.minecraft.world.phys.Vec3;
 
 public class ESLRenderUtils {
     public static Camera getCamera(){
-        return Minecraft.getInstance().gameRenderer.getMainCamera();
+        //? <=26.1{
+        /*return Minecraft.getInstance().gameRenderer.getMainCamera();
+        *///? } >=26.2{
+        return Minecraft.getInstance().gameRenderer.mainCamera();
+        //?}
     }
     public static Vec3 getCameraPos(){
         Camera camera = getCamera();
