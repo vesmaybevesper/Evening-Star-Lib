@@ -1,5 +1,5 @@
+/*
 package dev.vesper.eveningstarlib.common.Aurora;
-
 
 import com.google.common.annotations.Beta;
 import io.netty.util.internal.UnstableApi;
@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 // WIP disabled in production until its more ready :)
-
 
 @UnstableApi
 @Beta
@@ -122,3 +121,4 @@ public class Aurora {
         }
     }
 }
+*/

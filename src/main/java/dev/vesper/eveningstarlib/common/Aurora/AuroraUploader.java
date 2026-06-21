@@ -1,3 +1,4 @@
+/*
 package dev.vesper.eveningstarlib.common.Aurora;
 
 import com.google.common.annotations.Beta;
@@ -112,4 +113,4 @@ public class AuroraUploader {
         return name.replace(":", "_").replace("-", "_").replace(".", "_");
     }
     //?}
-}
+}*/

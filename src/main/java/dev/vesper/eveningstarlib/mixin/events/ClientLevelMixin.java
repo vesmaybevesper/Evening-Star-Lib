@@ -6,7 +6,9 @@ import dev.vesper.eveningstarlib.fabric.events.LevelEvents;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.client.renderer.LevelRenderer;
+//? >=26.2{
 import net.minecraft.client.renderer.extract.LevelExtractor;
+//?}
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;

@@ -1,3 +1,4 @@
+/*
 package dev.vesper.eveningstarlib.common.Aurora;
 
 import com.google.common.annotations.Beta;
@@ -72,8 +73,10 @@ public class AuroraDefaultUniforms {
 
     private static void updateCameraInfo(Minecraft minecraft) {
         //? <=26.1{
-        /*Vec3 cameraPos = minecraft.gameRenderer.getMainCamera().position();
-        *///?} >=26.2{
+        */
+/*Vec3 cameraPos = minecraft.gameRenderer.getMainCamera().position();
+        *//*
+//?} >=26.2{
         Vec3 cameraPos = minecraft.gameRenderer.mainCamera().position();
         //?}
         Aurora.setUniform("cameraX", (float) cameraPos.x);
@@ -123,8 +126,10 @@ public class AuroraDefaultUniforms {
         long worldTime = level.getDefaultClockTime();
         //this SHOULD be correct but i need to test a lot more
         //? <=26.1{
-        /*float currentAngle = Minecraft.getInstance().gameRenderer.getMainCamera().attributeProbe().getValue(EnvironmentAttributes.SUN_ANGLE, Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(true));
-        *///?} >=26.2 {
+        */
+/*float currentAngle = Minecraft.getInstance().gameRenderer.getMainCamera().attributeProbe().getValue(EnvironmentAttributes.SUN_ANGLE, Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(true));
+        *//*
+//?} >=26.2 {
         float currentAngle = Minecraft.getInstance().gameRenderer.mainCamera().attributeProbe().getValue(EnvironmentAttributes.SUN_ANGLE, Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaPartialTick(true));
         //?}
 
@@ -164,3 +169,4 @@ public class AuroraDefaultUniforms {
         return 99;
     }
 }
+*/

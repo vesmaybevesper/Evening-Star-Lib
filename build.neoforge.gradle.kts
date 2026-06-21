@@ -34,6 +34,7 @@ repositories{
 
 dependencies{
     compileOnly("maven.modrinth:iris:${property("deps.iris")}")
+    compileOnly("maven.modrinth:yacl:${property("deps.yacl")}")
 }
 
 neoForge {

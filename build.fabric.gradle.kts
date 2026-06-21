@@ -48,6 +48,7 @@ dependencies {
     implementation("net.fabricmc:fabric-loader:${property("deps.fabric-loader")}")
     implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     compileOnly("maven.modrinth:iris:${property("deps.iris")}")
+    compileOnly("maven.modrinth:yacl:${property("deps.yacl")}")
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) implementation(fabricApi.module("fabric-$it", property("deps.fabric-api") as String))
