@@ -11,5 +11,4 @@ public class EveningStarLib {
     public static void init() {
         LOG.info("Initializing {} on {}", MOD_ID, Platform.INSTANCE.loader());
     }
-
 }
