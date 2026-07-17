@@ -13,7 +13,7 @@ public class GameRenderMixin {
 
     @Inject(method = "renderLevel", at = @At("HEAD"))
     public void renderLevel(DeltaTracker deltaTracker, CallbackInfo ci) {
-        RenderSystem.assertOnRenderThread();
+        //RenderSystem.assertOnRenderThread();
         //AuroraUploader.uploadUniformsToCurrentProgram();
     }
 
