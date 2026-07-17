@@ -1,9 +1,7 @@
 package dev.vesper.eveningstarlib.common;
 
-//? fabric {
-import net.irisshaders.iris.api.v0.IrisApi;
-//?}
 import dev.vesper.eveningstarlib.EveningStarLib;
+import net.irisshaders.iris.api.v0.IrisApi;
 
 public class ESLModChecks {
 
