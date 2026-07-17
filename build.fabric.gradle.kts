@@ -49,6 +49,8 @@ dependencies {
     implementation("net.fabricmc.fabric-api:fabric-api:${property("deps.fabric-api")}")
     compileOnly("maven.modrinth:iris:${property("deps.iris")}")
     compileOnly("maven.modrinth:yacl:${property("deps.yacl")}")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.62")
+    include("com.alibaba.fastjson2:fastjson2:2.0.62")
 
     val modules = listOf("transitive-access-wideners-v1", "registry-sync-v0", "resource-loader-v0")
     for (it in modules) implementation(fabricApi.module("fabric-$it", property("deps.fabric-api") as String))
