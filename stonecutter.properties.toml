@@ -1,0 +1,72 @@
+loomx.loom_version="1.17-SNAPSHOT"
+
+mod.id = "eveningstarlilb"
+mod.name = "Evening Star Lib"
+mod.group = "dev.vesper"
+mod.version = "1.2.0"
+mod.channel_tag = ""
+mod.description = "Modding library containing commonly used code, rendering tools, events & some other useful tools."
+mod.authors = ["VesMaybeVesper"]
+mod.contributors = []
+mod.inception_year = "2026"
+mod.license.name = "MIT"
+mod.license.url = "https://opensource.org/licenses/MIT"
+mod.license.dist = "repo"
+mod.sources_url = "https://github.com/vesmaybevesper/Evening-Star-Lib"
+mod.homepage_url = "https://github.com/vesmaybevesper/Evening-Star-Lib"
+mod.issues_url = "https://github.com/vesmaybevesper/Evening-Star-Lib/issues"
+mod.discord_url = ""
+mod.environment = "both"
+[[mod.pom.developers]]
+id = "vesmaybevesper"
+name = "VesMaybeVesper"
+url = "https://github.com/ghost"
+
+[fabric]
+deps.fabric-loader = "0.19.3"
+
+[fabric."1.20.1"]
+deps.minecraft = "1.20.1"
+deps.fabric-api = "0.92.11+1.20.1"
+
+[fabric."1.21.1"]
+deps.minecraft = "1.21.1"
+deps.fabric-api = "0.116.15+1.21.1"
+
+[fabric."1.21.11"]
+deps.minecraft = "1.21.11"
+deps.fabric-api = "0.141.6+1.21.11"
+
+[fabric."26.1.2"]
+deps.minecraft = "26.1.2"
+deps.fabric-api = "0.155.2+26.1.2"
+publish.additionalVersions = ["26.1.1", "26.1"]
+
+[fabric."26.2"]
+deps.minecraft = "26.2"
+deps.fabric-api = "0.157.0+26.2"
+
+[forge]
+
+[forge."1.20.1"]
+deps.minecraft = "1.20.1"
+deps.forge = "47.4.10"
+
+[neoforge]
+
+[neoforge."1.21.1"]
+deps.minecraft = "1.21.1"
+deps.neoforge = "21.1.248"
+
+[neoforge."1.21.11"]
+deps.minecraft = "1.21.11"
+deps.neoforge = "21.11.45"
+
+[neoforge."26.1.2"]
+deps.minecraft = "26.1.2"
+deps.neoforge = "26.1.2.94"
+publish.additionalVersions = ["26.1.1", "26.1"]
+
+[neoforge."26.2"]
+deps.minecraft = "26.2"
+deps.neoforge = "26.2.0.59"
