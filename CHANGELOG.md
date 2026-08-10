@@ -1,2 +1,1 @@
-- Now provides the FastJSON2 serializer from _FASTJSON2 Serializer for YACL_ ([Modrinth](https://modrinth.com/mod/fastjson4yacl) / [CurseForge](https://www.curseforge.com/minecraft/mc-mods/fastjson2-serializer-for-yacl))
-- [NeoForge] IsShaders() returns to functionality
+- 
