@@ -83,4 +83,8 @@ dependencies {
 	// implementation(libs.moulberry.mixinconstraints)
 	// include(libs.moulberry.mixinconstraints)
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${prop("deps.fabric-api")}")
+	modCompileOnly("maven.modrinth:iris:${property("deps.iris")}")
+	modCompileOnly("maven.modrinth:yacl:${property("deps.yacl")}")
+	implementation("com.alibaba.fastjson2:fastjson2:2.0.63")
+	include("com.alibaba.fastjson2:fastjson2:2.0.63")
 }

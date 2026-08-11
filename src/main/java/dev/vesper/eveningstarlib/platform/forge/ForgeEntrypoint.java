@@ -1,8 +1,8 @@
-package dev.vesper.eveningstarlilb.platform.forge;
+package dev.vesper.eveningstarlib.platform.forge;
 
 //? forge {
 
-/*import dev.vesper.eveningstarlilb.EveningStarLib;
+/*import dev.vesper.eveningstarlib.EveningStarLib;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod(EveningStarLib.MOD_ID)

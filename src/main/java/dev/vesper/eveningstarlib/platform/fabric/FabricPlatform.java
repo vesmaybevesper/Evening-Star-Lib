@@ -1,8 +1,8 @@
-package dev.vesper.eveningstarlilb.platform.fabric;
+package dev.vesper.eveningstarlib.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.eveningstarlilb.platform.Platform;
+import dev.vesper.eveningstarlib.platform.Platform;
 import net.fabricmc.loader.api.FabricLoader;
 
 public class FabricPlatform implements Platform {

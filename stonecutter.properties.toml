@@ -1,10 +1,10 @@
 loomx.loom_version="1.17-SNAPSHOT"
 
-mod.id = "eveningstarlilb"
+mod.id = "eveningstarlib"
 mod.name = "Evening Star Lib"
 mod.group = "dev.vesper"
 mod.version = "1.2.0"
-mod.channel_tag = ""
+mod.channel_tag = "-alpha.1"
 mod.description = "Modding library containing commonly used code, rendering tools, events & some other useful tools."
 mod.authors = ["VesMaybeVesper"]
 mod.contributors = []
@@ -28,45 +28,64 @@ deps.fabric-loader = "0.19.3"
 [fabric."1.20.1"]
 deps.minecraft = "1.20.1"
 deps.fabric-api = "0.92.11+1.20.1"
+deps.iris= "1.7.6+1.20.1"
+deps.yacl = "3.6.6+1.20.1-fabric"
 
 [fabric."1.21.1"]
 deps.minecraft = "1.21.1"
 deps.fabric-api = "0.116.15+1.21.1"
+deps.iris= "1.8.14-beta.1+1.21.1-fabric"
+deps.yacl = "3.8.2+1.21.1-fabric"
 
 [fabric."1.21.11"]
 deps.minecraft = "1.21.11"
 deps.fabric-api = "0.141.6+1.21.11"
+deps.iris= "1.10.7+1.21.11-fabric"
+deps.yacl = "3.8.2+1.21.11-fabric"
 
 [fabric."26.1.2"]
 deps.minecraft = "26.1.2"
 deps.fabric-api = "0.155.2+26.1.2"
+deps.iris= "1.11.2+26.1-fabric"
+deps.yacl = "3.9.6+26.1-fabric"
 publish.additionalVersions = ["26.1.1", "26.1"]
 
 [fabric."26.2"]
 deps.minecraft = "26.2"
 deps.fabric-api = "0.157.0+26.2"
+deps.iris= "1.11.2+26.2-fabric"
+deps.yacl = "3.9.6+26.2-fabric"
 
 [forge]
 
 [forge."1.20.1"]
 deps.minecraft = "1.20.1"
 deps.forge = "47.4.10"
+deps.yacl = "3.6.6+1.20.1-forge"
 
 [neoforge]
 
 [neoforge."1.21.1"]
 deps.minecraft = "1.21.1"
 deps.neoforge = "21.1.248"
+deps.iris= "1.8.14-beta.1+1.21.1-neoforge"
+deps.yacl = "3.8.2+1.21.1-neoforge"
 
 [neoforge."1.21.11"]
 deps.minecraft = "1.21.11"
 deps.neoforge = "21.11.45"
+deps.iris= "1.10.7+1.21.11-neoforge"
+deps.yacl = "3.8.2+1.21.11-neoforge"
 
 [neoforge."26.1.2"]
 deps.minecraft = "26.1.2"
 deps.neoforge = "26.1.2.94"
+deps.iris= "1.11.3+26.1-neoforge"
+deps.yacl = "3.9.6+26.1-neoforge"
 publish.additionalVersions = ["26.1.1", "26.1"]
 
 [neoforge."26.2"]
 deps.minecraft = "26.2"
 deps.neoforge = "26.2.0.59"
+deps.iris= "1.11.2+26.2-neoforge"
+deps.yacl = "3.9.6+26.2-neoforge"

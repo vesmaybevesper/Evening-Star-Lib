@@ -1,8 +1,8 @@
-package dev.vesper.eveningstarlilb.platform.forge;
+package dev.vesper.eveningstarlib.platform.forge;
 
 //? forge {
 
-/*import dev.vesper.eveningstarlilb.platform.Platform;
+/*import dev.vesper.eveningstarlib.platform.Platform;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.loading.FMLLoader;
 

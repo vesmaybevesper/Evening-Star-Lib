@@ -1,4 +1,4 @@
-package dev.vesper.eveningstarlilb.platform;
+package dev.vesper.eveningstarlib.platform;
 
 public interface Platform {
 	boolean isModLoaded(String modId);

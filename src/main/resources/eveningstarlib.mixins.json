@@ -1,0 +1,18 @@
+{
+  "package": "dev.vesper.eveningstarlib.mixin",
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "${java}",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "events.MinecraftServerMixin"
+  ],
+  "client": [
+    "GameRendererMixin",
+    "events.ClientLevelMixin",
+    "events.ClientPacketListener",
+    "events.MinecraftMixin"
+  ]
+}

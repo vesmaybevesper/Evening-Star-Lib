@@ -1,23 +1,28 @@
-package dev.vesper.eveningstarlilb;
+package dev.vesper.eveningstarlib;
 
-import dev.vesper.eveningstarlilb.platform.Platform;
+import dev.vesper.eveningstarlib.platform.Platform;
 
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? fabric {
-import dev.vesper.eveningstarlilb.platform.fabric.FabricPlatform;
+import dev.vesper.eveningstarlib.platform.fabric.FabricPlatform;
+import net.fabricmc.loader.api.FabricLoader;
 //?} neoforge {
-/*import dev.vesper.eveningstarlilb.platform.neoforge.NeoforgePlatform;
+/*import dev.vesper.eveningstarlib.platform.neoforge.NeoforgePlatform;
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.loading.FMLEnvironment;
  *///?} forge {
-/*import dev.vesper.eveningstarlilb.platform.forge.ForgePlatform;
+/*import dev.vesper.eveningstarlib.platform.forge.ForgePlatform;
+import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLEnvironment;
  *///?}
 
 @SuppressWarnings("LoggingSimilarMessage")
 public class EveningStarLib {
 
-	public static final String MOD_ID = /*$ mod_id*/ "eveningstarlilb";
+	public static final String MOD_ID = /*$ mod_id*/ "eveningstarlib";
 	public static final String MOD_VERSION = /*$ mod_version*/ "1.2.0";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Evening Star Lib";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
@@ -48,19 +53,24 @@ public class EveningStarLib {
 		 *///?}
 	}
 
-	private static ResourceLocation id(String path) {
-		//? > 1.19.2 {
-		return ResourceLocation.tryBuild(MOD_ID, path);
-		 //?} <= 1.19.2 {
-		/*return new ResourceLocation(MOD_ID, path);
+	public static boolean isDevEnv(){
+		//? fabric{
+		return FabricLoader.getInstance().isDevelopmentEnvironment();
+		//?} neoforge{
+		/*return !FMLEnvironment. /^? >=1.21.11{^/ /^isProduction() ^//^?} 1.21.1{ ^/production /^?}^/;
+		 *///?} forge{
+		/*return !FMLEnvironment.production;
 		*///?}
 	}
 
-	private static ResourceLocation id(String namespace, String path) {
-		//? > 1.19.2 {
-		return ResourceLocation.tryBuild(namespace, path);
-		 //?} <= 1.19.2 {
-		/*return new ResourceLocation(namespace, path);
+	public static boolean isModLoaded(String modId){
+		//? fabric {
+		return FabricLoader.getInstance().isModLoaded(modId);
+		//?}
+		//? neoforge {
+		/*return ModList.get().isLoaded(modId);
+		 *///?} forge {
+		/*return ModList.get().isLoaded(modId);
 		*///?}
 	}
 }

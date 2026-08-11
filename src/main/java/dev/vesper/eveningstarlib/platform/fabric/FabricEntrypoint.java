@@ -1,8 +1,8 @@
-package dev.vesper.eveningstarlilb.platform.fabric;
+package dev.vesper.eveningstarlib.platform.fabric;
 
 //? fabric {
 
-import dev.vesper.eveningstarlilb.EveningStarLib;
+import dev.vesper.eveningstarlib.EveningStarLib;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
 import net.fabricmc.api.ModInitializer;
 

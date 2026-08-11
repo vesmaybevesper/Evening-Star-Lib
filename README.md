@@ -1,0 +1,6 @@
+- Backport recent additions to 1.21.11 & 1.21.1
+- Add Support for 1.20.1 (incl. Forge)
+- Add `isSodiumLike()`
+  - Checks for Sodium, Embeddium, or Rubidium, may be useful for legacy modding
+- Mark `isSodium()` as deprecated, will eventually be removed in favor of `isSodiumLike()`
+- Update FastJSON to 2.0.63
