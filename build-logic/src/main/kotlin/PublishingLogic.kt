@@ -100,7 +100,7 @@ private fun ModPublishExtension.modrinth(
 	environment = when (ctx.environment.lowercase()) {
 		"client" -> ModrinthEnvironment.CLIENT_ONLY
 		"server" -> ModrinthEnvironment.SERVER_ONLY
-		else -> ModrinthEnvironment.CLIENT_AND_SERVER
+		else -> ModrinthEnvironment.CLIENT_OR_SERVER
 	}
 
 	this.accessToken = accessToken
