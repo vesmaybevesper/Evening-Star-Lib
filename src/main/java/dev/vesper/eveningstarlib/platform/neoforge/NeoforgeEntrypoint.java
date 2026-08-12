@@ -11,8 +11,8 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 
 //? >=26.1.2{
-/^import dev.vesper.eveningstarlib.common.aurora.AuroraDefaultUniforms;
-^///?}
+import dev.vesper.eveningstarlib.common.aurora.AuroraDefaultUniforms;
+//?}
 
 @Mod(EveningStarLib.MOD_ID)
 public class NeoforgeEntrypoint {
@@ -22,7 +22,7 @@ public class NeoforgeEntrypoint {
 	}
 
 	//? >=26.1.2{
-	/^@EventBusSubscriber(modid = EveningStarLib.MOD_ID, value = Dist.CLIENT)
+	@EventBusSubscriber(modid = EveningStarLib.MOD_ID, value = Dist.CLIENT)
 	public static class ClientEvents {
 		@SubscribeEvent
 		public static void onClientSetup(final FMLClientSetupEvent event) {
@@ -36,6 +36,6 @@ public class NeoforgeEntrypoint {
 			//AuroraDefaultUniforms.updateAll();
 		}
 	}
-	^///?}
+	//?}
 }
 *///?}

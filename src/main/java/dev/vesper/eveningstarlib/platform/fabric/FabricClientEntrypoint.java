@@ -22,14 +22,16 @@ public class FabricClientEntrypoint implements ClientModInitializer {
 	public void onInitializeClient() {
 		EveningStarLib.onInitializeClient();
 		//? >=26.2{
-        if (Minecraft.getInstance().options.preferredGraphicsBackend().equals(PreferredGraphicsApi.VULKAN)) {
-			AuroraDefaultUniforms.registerAll();
-			//Not sure if this is the right event, was BEFORE_ENTITIES before the FAPI changes. Just picked the one that felt most right needs testing
-			LevelRenderEvents.AFTER_TRANSLUCENT_FEATURES.register(worldRenderContext -> {
-		        AuroraDefaultUniforms.updateAll();
-	        });
-		}
+
          //?}
         }
 	}
 //?}
+
+//if (Minecraft.getInstance().options.preferredGraphicsBackend().equals(PreferredGraphicsApi.VULKAN)) {
+//		AuroraDefaultUniforms.registerAll();
+////Not sure if this is the right event, was BEFORE_ENTITIES before the FAPI changes. Just picked the one that felt most right needs testing
+//			LevelRenderEvents.AFTER_TRANSLUCENT_FEATURES.register(worldRenderContext -> {
+//		AuroraDefaultUniforms.updateAll();
+//	        });
+//					}

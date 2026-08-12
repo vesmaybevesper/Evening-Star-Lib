@@ -57,4 +57,22 @@ public class ESLModChecks {
 	public static boolean isSodiumLike(){
 		return  EveningStarLib.isModLoaded("sodium") || EveningStarLib.isModLoaded("embeddium") ||  EveningStarLib.isModLoaded("rubidium");
 	}
+
+	/**
+	 * Returns a string of which Sodium fork is present
+	 *
+	 * @return String
+	 */
+	public String sodiumLikeType() {
+		if (isSodiumLike()){
+			if (EveningStarLib.isModLoaded("sodium")) {
+				return "sodium";
+			} else if (EveningStarLib.isModLoaded("embeddium")) {
+				return "embeddium";
+			} else  if (EveningStarLib.isModLoaded("rubidium")) {
+				return "rubidium";
+			}
+		}
+		return null;
+	}
 }

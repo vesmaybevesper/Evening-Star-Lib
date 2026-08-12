@@ -36,7 +36,7 @@ public class MinecraftServerMixin {
 			ordinal = 1,
 			shift = At.Shift.AFTER
 	))
-	private void onLoadWorld(CallbackInfo ci, @Local(index = 18) ResourceKey<Level> dimension) {
+	private void onLoadWorld(CallbackInfo ci, @Local/*? <=1.21.11{ *//*(index = 18) *//*?} >=26.1.2{ */(index = 15) /*?}*/ ResourceKey<Level> dimension) {
 		new LevelEvents.Load(levels.get(dimension)).sendEvent();
 	}
 

@@ -24,10 +24,10 @@ import com.llamalad7.mixinextras.sugar.Local;
 
 @Mixin(net.minecraft.client.multiplayer.ClientPacketListener.class)
 @MixinEnvironment(type = MixinEnvironment.Env.CLIENT)
-public abstract class ClientPacketListener /*? >=1.21.1 {*/ extends ClientCommonPacketListenerImpl /*?}*/ {
+public abstract class ClientPacketListenerMixin /*? >=1.21.1 {*/ extends ClientCommonPacketListenerImpl /*?}*/ {
 
 	//? >=1.21.1{
-	protected ClientPacketListener(Minecraft minecraft, Connection connection, CommonListenerCookie commonListenerCookie) {
+	protected ClientPacketListenerMixin(Minecraft minecraft, Connection connection, CommonListenerCookie commonListenerCookie) {
 		super(minecraft, connection, commonListenerCookie);
 	}
 

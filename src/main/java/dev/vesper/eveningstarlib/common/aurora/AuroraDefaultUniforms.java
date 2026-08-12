@@ -12,6 +12,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.resources.Identifier;
 import org.jetbrains.annotations.ApiStatus;
 
+@ApiStatus.Internal
 @ApiStatus.Experimental
 @Beta
 public class AuroraDefaultUniforms {

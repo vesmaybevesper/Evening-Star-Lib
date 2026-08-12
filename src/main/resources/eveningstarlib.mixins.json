@@ -12,7 +12,7 @@
   "client": [
     "GameRendererMixin",
     "events.ClientLevelMixin",
-    "events.ClientPacketListener",
+    "events.ClientPacketListenerMixin",
     "events.MinecraftMixin"
   ]
 }

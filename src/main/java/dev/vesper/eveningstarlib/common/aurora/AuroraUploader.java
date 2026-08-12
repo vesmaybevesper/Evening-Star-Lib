@@ -16,6 +16,7 @@ import org.lwjgl.vulkan.VkCommandBuffer;
 //?}
 
 @ApiStatus.Internal
+@ApiStatus.Experimental
 @Beta
 public class AuroraUploader {
 	//? >= 26.2 {
