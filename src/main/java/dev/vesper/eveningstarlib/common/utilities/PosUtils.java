@@ -1,4 +1,4 @@
-package dev.vesper.eveningstarlib.common;
+package dev.vesper.eveningstarlib.common.utilities;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.RandomSource;
@@ -6,7 +6,7 @@ import net.minecraft.world.phys.Vec2;
 
 import java.util.Random;
 
-public class ESLPosUtils {
+public class PosUtils {
 
 	/**
 	 * Returns a random location at the edge of the game window
