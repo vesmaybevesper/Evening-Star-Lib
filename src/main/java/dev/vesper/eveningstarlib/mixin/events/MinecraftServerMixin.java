@@ -18,7 +18,7 @@ import dev.kikugie.fletching_table.annotation.MixinEnvironment;
 import net.minecraft.server.MinecraftServer;
 
 @Mixin(MinecraftServer.class)
-@MixinEnvironment(type = MixinEnvironment.Env.MAIN)
+@MixinEnvironment(type = MixinEnvironment.Env.SERVER)
 public class MinecraftServerMixin {
 	//? fabric {
 	@Shadow
