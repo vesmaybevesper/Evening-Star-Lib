@@ -1,5 +1,6 @@
 package dev.vesper.eveningstarlib;
 
+import dev.vesper.eveningstarlib.common.polyphonic.SoundTags;
 import dev.vesper.eveningstarlib.platform.Platform;
 
 import net.minecraft.resources.Identifier;
@@ -32,6 +33,7 @@ public class EveningStarLib {
 	public static void onInitialize() {
 		LOGGER.info("Initializing {} on {}", MOD_ID, EveningStarLib.xplat().loader());
 		LOGGER.debug("{}: { version: {}; friendly_name: {} }", MOD_ID, MOD_VERSION, MOD_FRIENDLY_NAME);
+		SoundTags.bootstrap();
 	}
 
 	public static void onInitializeClient() {
