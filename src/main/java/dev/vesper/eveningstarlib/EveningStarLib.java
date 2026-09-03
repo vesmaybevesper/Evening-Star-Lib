@@ -23,7 +23,7 @@ import net.minecraftforge.fml.loading.FMLEnvironment;
 public class EveningStarLib {
 
 	public static final String MOD_ID = /*$ mod_id*/ "eveningstarlib";
-	public static final String MOD_VERSION = /*$ mod_version*/ "1.3.0";
+	public static final String MOD_VERSION = /*$ mod_version*/ "1.2.2";
 	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Evening Star Lib";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
