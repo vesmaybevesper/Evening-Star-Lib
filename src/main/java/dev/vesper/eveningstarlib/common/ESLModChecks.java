@@ -61,7 +61,6 @@ public class ESLModChecks {
 
 	/**
 	 * Returns a string of which Sodium fork is present
-	 *
 	 * @return String
 	 */
 	public String sodiumLikeType() {
