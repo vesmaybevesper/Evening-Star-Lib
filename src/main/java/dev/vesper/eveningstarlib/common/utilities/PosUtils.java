@@ -67,38 +67,4 @@ public class PosUtils {
 		Random random = new Random();
 		return (random.nextDouble(range + 1) - range) / 10000;
 	}
-
-	/**
-	 * Calculation to check the distance between two points without height. Returns the distance as a positive number.
-	 * @param fromPos The point we are checking the distance from
-	 * @param toPos The point we are checking the distance to
-	 * @return Vec2
-	 */
-	public static Vec2 getDistance(Vec2 fromPos, Vec2 toPos){
-		float fromPosX = fromPos.x;
-		float fromPosY = fromPos.y;
-		float toPosX = toPos.x;
-		float toPosY = toPos.y;
-		float distanceX = Math.abs(fromPos.x) - Math.abs(toPos.x);
-		float distanceY = Math.abs(fromPos.y) - Math.abs(toPos.y);
-		distanceX = Math.abs(distanceX);
-		distanceY = Math.abs(distanceY);
-		return new Vec2(distanceX, distanceY);
-	}
-
-	/**
-	 * Calculation to check the distance between two points. Returns the distance as a positive number.
-	 * @param fromPos The point we are checking the distance from
-	 * @param toPos The point we are checking the distance to
-	 * @return Vec3
-	 */
-	public static Vec3 getDistance(Vec3 fromPos, Vec3 toPos){
-		double distanceX = Math.abs(fromPos.x) - Math.abs(toPos.x);
-		double distanceY = Math.abs(fromPos.y) - Math.abs(toPos.y);
-		double distanceZ = Math.abs(fromPos.z) - Math.abs(toPos.z);
-		distanceX = Math.abs(distanceX);
-		distanceY = Math.abs(distanceY);
-		distanceZ = Math.abs(distanceZ);
-		return new Vec3(distanceX, distanceY, distanceZ);
-	}
 }
