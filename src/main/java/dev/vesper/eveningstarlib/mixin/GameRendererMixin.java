@@ -17,7 +17,8 @@ public class GameRendererMixin {
 
 	//? >=26.1.2{
 	@Inject(method = "renderLevel", at = @At("HEAD"))
-	public void renderLevel(DeltaTracker deltaTracker, CallbackInfo ci) {
+	//~ if >=26.3 'DeltaTracker deltaTracker, CallbackInfo ci' -> 'CallbackInfo ci'
+	public void renderLevel(CallbackInfo ci) {
 		//RenderSystem.assertOnRenderThread();
 		//AuroraUploader.uploadUniformsToCurrentProgram();
 	}
