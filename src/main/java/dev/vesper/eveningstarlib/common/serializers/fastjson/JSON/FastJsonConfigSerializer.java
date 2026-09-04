@@ -1,4 +1,4 @@
-package dev.vesper.eveningstarlib.common.serializers.fastjson;
+package dev.vesper.eveningstarlib.common.serializers.fastjson.JSON;
 
 import com.alibaba.fastjson2.*;
 import com.alibaba.fastjson2.reader.ObjectReader;
