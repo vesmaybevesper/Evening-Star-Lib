@@ -4,7 +4,10 @@
   - `ESLModChecks` -> `ModChecks`
   - `ESLPosUtils` -> `PosUtils`
   - `ESLRenderUtils` -> `RenderUtils`
-- ~~Added `getDistance`~~
-  - ~~Calculates the distance in blocks between two points~~
-  - ~~Version for 2D (Vec2) and 3D (vec3) space~~
-- Add and improve exiting documentation
+- Relocated the default FastJson2 config serializer to `dev.vesper.eveningstarlib.common.serializers.fastjson.JSON`
+- Performance optimizations to the default FastJson2 config serializer [WIP]
+- Added support for JsonB with FastJson2 [WIP]
+  - `dev.vesper.eveningstarlib.common.serializers.fastjson.JSONB`
+- Added a YACL Config serializer using WAST [WIP]
+  - `dev.vesper.eveningstarlib.common.serializers.wast`
+- Add (and improve exiting) documentation
