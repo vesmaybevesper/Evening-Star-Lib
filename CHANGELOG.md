@@ -1,1 +1,2 @@
-- Update FastJson2 to 2.0.65
+- Add support for 26.3
+- Optimization pass on the FASTJSON2 Config Serializer
