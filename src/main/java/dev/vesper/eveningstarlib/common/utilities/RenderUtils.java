@@ -1,10 +1,10 @@
-package dev.vesper.eveningstarlib.common;
+package dev.vesper.eveningstarlib.common.utilities;
 
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.phys.Vec3;
 
-public class ESLRenderUtils {
+public class RenderUtils {
 
 	/**
 	 * Returns the clients main camera

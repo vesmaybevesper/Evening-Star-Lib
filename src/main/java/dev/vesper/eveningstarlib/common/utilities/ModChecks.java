@@ -1,11 +1,11 @@
-package dev.vesper.eveningstarlib.common;
+package dev.vesper.eveningstarlib.common.utilities;
 
 import dev.vesper.eveningstarlib.EveningStarLib;
 //? !forge{
 import net.irisshaders.iris.api.v0.IrisApi;
 //?}
 
-public class ESLModChecks {
+public class ModChecks {
 
 	/**
 	 * Checks if Iris is present and returns the appropriate boolean; Always returns false on [Lex]Forge
