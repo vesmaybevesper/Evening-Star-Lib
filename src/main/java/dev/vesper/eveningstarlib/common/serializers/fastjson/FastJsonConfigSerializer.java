@@ -3,7 +3,11 @@ package dev.vesper.eveningstarlib.common.serializers.fastjson.JSON;
 import com.alibaba.fastjson2.*;
 import com.alibaba.fastjson2.reader.ObjectReader;
 import com.alibaba.fastjson2.writer.ObjectWriter;
-import dev.isxander.yacl3.config.v2.api.*;
+import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
+import dev.isxander.yacl3.config.v2.api.ConfigField;
+import dev.isxander.yacl3.config.v2.api.ConfigSerializer;
+import dev.isxander.yacl3.config.v2.api.FieldAccess;
+import dev.isxander.yacl3.config.v2.api.SerialField;
 import dev.isxander.yacl3.gui.utils.ItemRegistryHelper;
 import dev.isxander.yacl3.impl.utils.YACLConstants;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -24,8 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
 
 public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 	private final Path path;
@@ -48,44 +52,49 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 		YACLConstants.LOGGER.info("Serializing {} to '{}'", this.config.getClass(), this.path);
 
 		try {
-			JSONObject root = new JSONObject();
+			Files.createDirectories(this.path.getParent());
 
-			for (ConfigField<?> field : this.config.fields()){
-				SerialField serial = field.serial().orElse(null);
-				if (serial == null) continue;
-				Object value;
+			try (JSONWriter writer = JSONWriter.ofUTF8(writerFeatures)) {
+				writer.startObject();
 
-				try {
-					value = field.access().get();
-				} catch (Exception e) {
-					YACLConstants.LOGGER.error("Failed to read config field '{}'. Serializing as null.", serial.serialName(), e);
-					root.put(serial.serialName(), null);
-					continue;
+				for (ConfigField<?> field : this.config.fields()){
+					SerialField serialField = field.serial().orElse(null);
+
+					if (serialField == null) continue;
+
+					Object value;
+
+					try {
+						value = field.access().get();
+					} catch (Exception e){
+						YACLConstants.LOGGER.error("Failed to read config field '{}'. Serializing as null.", serialField.serialName(), e);
+						writer.writeName(serialField.serialName());
+						writer.writeColon();
+						writer.writeNull();
+						continue;
+					}
+
+					@SuppressWarnings("unchecked")
+					ObjectWriter<Object> customWriter = (ObjectWriter<Object>) typeWriters.get(field.access().type());
+
+					writer.writeName(serialField.serialName());
+					writer.writeColon();
+					try {
+						if (customWriter != null){
+							customWriter.write(writer, value, serialField.serialName(), field.access().type(), 0);
+						} else {
+							writer.writeAny(value);
+						}
+					} catch (Exception e){
+						YACLConstants.LOGGER.error("Failed to serialize config field '{}'. Serializing as null.", serialField.serialName(), e);
+						writer.writeNull();
+					}
 				}
 
-				@SuppressWarnings("unchecked")
-				ObjectWriter<Object> writer = (ObjectWriter<Object>) typeWriters.get(field.access().type());
-				if (writer != null) {
-					try {
-						String fragment = JSON.toJSONString(value, writerFeatures);
-						root.put(serial.serialName(), JSON.parse(fragment));
-					} catch (Exception e) {
-						YACLConstants.LOGGER.error("Failed to serialize config field '{}' with custom writer. Serializing as null.", serial.serialName(), e);
-						root.put(serial.serialName(), null);
-					}
-				} else {
-					try {
-						root.put(serial.serialName(), value);
-					} catch (Exception e) {
-						YACLConstants.LOGGER.error("Failed to serialize config field '{}'. Serializing as null.", serial.serialName(), e);
-						root.put(serial.serialName(), null);
-					}
-				}
+				writer.endObject();
+				Files.write(this.path, writer.getBytes(), StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE);
 			}
 
-			String json = root.toString(writerFeatures);
-			Files.createDirectories(this.path.getParent());
-			Files.writeString(this.path, json, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			YACLConstants.LOGGER.error("Failed to serialize config class '{}'.", this.config.configClass().getSimpleName(), e);
 		}
@@ -179,8 +188,10 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 		this.config.load();
 	}
 
-	//? >=1.21.1{
+	//? >= 1.21.1{
 	public static class StyleWriter implements ObjectWriter<Style> {
+		public static final StyleWriter INSTANCE = new StyleWriter();
+
 		@Override
 		public void write(JSONWriter jsonWriter, Object object, Object fieldName, Type fieldType, long features) {
 			if (!(object instanceof Style style)) {
@@ -194,12 +205,15 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 					.orElse(null);
 			if (tag == null) {
 				jsonWriter.writeNull();
+				return;
 			}
 			jsonWriter.writeAny(tagToJson(tag));
 		}
 	}
 
 	public static class StyleReader implements ObjectReader<Style> {
+		public static final StyleReader INSTANCE = new StyleReader();
+
 		@Override
 		public Style readObject(JSONReader jsonReader, Type fieldType, Object fieldName, long features) {
 			JSONObject obj = jsonReader.readJSONObject();
@@ -211,14 +225,20 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 					.orElse(Style.EMPTY);
 		}
 	}
-	//?}
+//?}
 
 	private static Object tagToJson(Tag tag) {
 		if (tag instanceof CompoundTag compound) {
 			JSONObject obj = new JSONObject(compound.size());
-			for (String key : /*? >1.21.1 {*/ compound.keySet() /*?} <= 1.21.1 {*/ /*compound.getAllKeys() *//*?} */){
+			//? >= 1.21.5{
+			for (String key : compound.keySet()){
 				obj.put(key, tagToJson(compound.get(key)));
 			}
+			//?} <=1.21.1{
+			/*for (String key : compound.getAllKeys()){
+				obj.put(key, tagToJson(compound.get(key)));
+			}
+			*///?}
 			return obj;
 		}
 		if (tag instanceof ListTag list) {
@@ -229,13 +249,25 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 			return arr;
 		}
 		if (tag instanceof NumericTag num) {
-			Number n = /*? >1.21.1 {*/ num.asNumber().get() /*?} <= 1.21.1 {*/ /*num.getAsNumber() *//*?} */;
+			//? >=1.21.5{
+			Number n = num.asNumber().get();
+			//?} <=1.21.1{
+			/*Number n = num.getAsNumber();
+			 *///?}
 			return n;
 		}
 		if (tag instanceof StringTag str) {
-			return /*? >1.21.1 {*/ str.asString().toString() /*?} <= 1.21.1 {*/ /*str.getAsString()*//*?} */;
+			//? >=1.21.5{
+			return str.asString().toString();
+			//?} <=1.21.1{
+			/*return str.getAsString();
+			 *///?}
 		}
-		return /*? >1.21.1 {*/ tag.asString().toString() /*?} <= 1.21.1 {*/ /*tag.getAsString()*//*?} */;
+		//? >=1.21.5{
+		return tag.asString().toString();
+		//?} <=1.21.1{
+		/*return tag.getAsString();
+		 *///?}
 	}
 
 	private static CompoundTag jsonToTag(JSONObject obj) {
@@ -289,10 +321,13 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 			return LongTag.valueOf(number.longValue());
 		}
 		*///?}
+
 		return StringTag.valueOf(value == null ? "" : value.toString());
 	}
 
 	public static class ColorWriter implements ObjectWriter<Color> {
+		public static final ColorWriter INSTANCE = new ColorWriter();
+
 		@Override
 		public void write(JSONWriter jsonWriter, Object object, Object fieldName, Type fieldType, long features) {
 			if (!(object instanceof Color color)) {
@@ -304,6 +339,8 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 	}
 
 	public static class ColorReader implements ObjectReader<Color> {
+		public static final ColorReader INSTANCE = new ColorReader();
+
 		@Override
 		public Color readObject(JSONReader jsonReader, Type fieldType, Object fieldName, long features) {
 			return new Color(jsonReader.readInt32(), true);
@@ -311,6 +348,8 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 	}
 
 	public static class ItemWriter implements ObjectWriter<Item> {
+		public static final ItemWriter INSTANCE = new ItemWriter();
+
 		@Override
 		public void write(JSONWriter jsonWriter, Object object, Object fieldName, Type fieldType, long features) {
 			if (!(object instanceof Item item)) {
@@ -322,6 +361,8 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 	}
 
 	public static class ItemReader implements ObjectReader<Item> {
+		public static final ItemReader INSTANCE = new ItemReader();
+
 		@Override
 		public Item readObject(JSONReader jsonReader, Type fieldType, Object fieldName, long features) {
 			return ItemRegistryHelper.getItemFromName(jsonReader.readString());
@@ -354,16 +395,16 @@ public class FastJsonConfigSerializer<T> extends ConfigSerializer<T> {
 		}
 
 		private  void registerDefaultAdapters() {
-			//? >=1.21.1{
-			typeWriters.put(Style.class, new StyleWriter());
-			typeReaders.put(Style.class, new StyleReader());
+			//? >= 1.21.1{
+			typeWriters.put(Style.class, StyleWriter.INSTANCE);
+			typeReaders.put(Style.class, StyleReader.INSTANCE);
 			//?}
 
-			typeWriters.put(Color.class, new ColorWriter());
-			typeReaders.put(Color.class, new ColorReader());
+			typeWriters.put(Color.class, ColorWriter.INSTANCE);
+			typeReaders.put(Color.class, ColorReader.INSTANCE);
 
-			typeWriters.put(Item.class, new ItemWriter());
-			typeReaders.put(Item.class, new ItemReader());
+			typeWriters.put(Item.class, ItemWriter.INSTANCE);
+			typeReaders.put(Item.class, ItemReader.INSTANCE);
 
 		}
 
