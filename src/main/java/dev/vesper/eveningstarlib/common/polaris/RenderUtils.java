@@ -1,4 +1,4 @@
-package dev.vesper.eveningstarlib.common.utilities;
+package dev.vesper.eveningstarlib.common.polaris;
 
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;

@@ -1,10 +1,8 @@
-package dev.vesper.eveningstarlib.common.utilities;
+package dev.vesper.eveningstarlib.common.polaris;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec2;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.Random;
 
