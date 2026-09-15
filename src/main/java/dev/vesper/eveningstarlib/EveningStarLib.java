@@ -2,7 +2,6 @@ package dev.vesper.eveningstarlib;
 
 import dev.vesper.eveningstarlib.platform.Platform;
 
-import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

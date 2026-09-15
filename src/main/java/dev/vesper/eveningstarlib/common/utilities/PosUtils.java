@@ -1,12 +1,14 @@
-package dev.vesper.eveningstarlib.common;
+package dev.vesper.eveningstarlib.common.utilities;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.phys.Vec2;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.Random;
 
-public class ESLPosUtils {
+public class PosUtils {
 
 	/**
 	 * Returns a random location at the edge of the game window
@@ -57,7 +59,7 @@ public class ESLPosUtils {
 	}
 
 	/**
-	 * A sized down random offset. Returns a random number between +/- (range / 10000)
+	 * A sized down random offset intended for use with particle positions. Returns a random number between +/- (range / 10000)
 	 * @param range A double 1000X the max range size
 	 * @return double
 	 */
