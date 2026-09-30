@@ -1,11 +1,10 @@
-package dev.vesper.eveningstarlib.platform.fabric.events;
+package dev.vesper.eveningstarlib.platform.fabric.supernova;
 
 //? fabric{
 
 import net.fabricmc.fabric.api.event.Event;
 import net.fabricmc.fabric.api.event.EventFactory;
 import net.minecraft.world.level.LevelAccessor;
-import org.jetbrains.annotations.NotNull;
 
 public abstract class LevelEvents {
 	private final LevelAccessor level;

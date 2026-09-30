@@ -2,7 +2,7 @@ package dev.vesper.eveningstarlib.mixin.events;
 
 //? fabric {
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.vesper.eveningstarlib.platform.fabric.events.*;
+import dev.vesper.eveningstarlib.platform.fabric.supernova.LevelEvents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.Level;

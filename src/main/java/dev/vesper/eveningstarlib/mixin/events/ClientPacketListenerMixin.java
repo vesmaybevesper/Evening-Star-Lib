@@ -15,7 +15,7 @@ import net.minecraft.client.multiplayer.CommonListenerCookie;
 //?}
 
 //? fabric{
-import dev.vesper.eveningstarlib.platform.fabric.events.ClientRespawnEventCallback;
+import dev.vesper.eveningstarlib.platform.fabric.supernova.ClientRespawnEventCallback;
 //?}
 
 //? !forge{

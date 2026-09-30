@@ -1,14 +1,13 @@
 package dev.vesper.eveningstarlib.mixin.events;
 
 //? fabric {
-import dev.vesper.eveningstarlib.platform.fabric.events.*;
 //?}
+import dev.vesper.eveningstarlib.platform.fabric.supernova.LevelEvents;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 //? >=26.2{
 import net.minecraft.client.renderer.extract.LevelExtractor;
 //?}
-import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.resources.ResourceKey;

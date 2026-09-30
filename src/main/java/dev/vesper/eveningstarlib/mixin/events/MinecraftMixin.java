@@ -1,10 +1,10 @@
 package dev.vesper.eveningstarlib.mixin.events;
 
 //? fabric {
-import dev.vesper.eveningstarlib.platform.fabric.events.*;
 //? <1.21.9{
 /*import net.minecraft.client.gui.screens.ReceivingLevelScreen;
  *///?}
+import dev.vesper.eveningstarlib.platform.fabric.supernova.LevelEvents;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.multiplayer.ClientLevel;
 import org.jetbrains.annotations.Nullable;
